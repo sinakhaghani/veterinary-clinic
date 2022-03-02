@@ -1,0 +1,30 @@
+@font-face {
+    font-family: iransens;
+    src: url('../fonts/irsans.ttf') /* IE9+ */
+}
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans.ttf');
+}
+@font-face {
+    font-family: 'Vazir-Light';
+    src: url('../fonts/Vazir-Thin.woff2');
+}
+.font-family-body{
+    font-family: 'Vazir-Light',iransens,"Helvetica", "Arial", sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p,span,a,li{
+    font-family: 'Vazir-Light',iransens !important;
+    text-align: center;
+    direction: rtl;
+}
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+.style_rtl{
+    direction: rtl;
+    text-align: right;
+}
