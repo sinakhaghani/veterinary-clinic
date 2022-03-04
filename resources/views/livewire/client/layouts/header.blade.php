@@ -35,8 +35,8 @@
                 <div class="row align-items-center">
                     <div class="col-xl-3 col-lg-3">
                         <div class="logo">
-                            <a href="/login">
-                                <img src="/img/login.png" alt="" style="width: 70px;height: 70px">
+                            <a href="/admin-login">
+                                <img src="/client/img/login.png" alt="" style="width: 70px;height: 70px">
                             </a>
                         </div>
                     </div>

@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="dog_thumb d-none d-lg-block">
-            <img src="img/banner/dog.png" alt="">
+            <img src="client/img/banner/dog.png" alt="">
         </div>
     </div>
 </div>

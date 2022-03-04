@@ -14,7 +14,7 @@
                 <div class="single_service">
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                         <div class="service_icon">
-                            <img src="img/service/service_icon_1.png" alt="">
+                            <img src="client/img/service/service_icon_1.png" alt="">
                         </div>
                     </div>
                     <div class="service_content text-center">
@@ -27,7 +27,7 @@
                 <div class="single_service active">
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                         <div class="service_icon">
-                            <img src="img/service/service_icon_2.png" alt="">
+                            <img src="client/img/service/service_icon_2.png" alt="">
                         </div>
                     </div>
                     <div class="service_content text-center">
@@ -40,7 +40,7 @@
                 <div class="single_service">
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                         <div class="service_icon">
-                            <img src="img/service/service_icon_3.png" alt="">
+                            <img src="client/img/service/service_icon_3.png" alt="">
                         </div>
                     </div>
                     <div class="service_content text-center">
@@ -60,7 +60,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="pet_thumb">
-                    <img src="img/about/pet_care.png" alt="">
+                    <img src="client/img/about/pet_care.png" alt="">
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1 col-md-6">
@@ -94,7 +94,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_team">
                     <div class="thumb">
-                        <img src="img/team/1.png" alt="">
+                        <img src="client/img/team/1.png" alt="">
                     </div>
                     <div class="member_name text-center">
                         <div class="mamber_inner">
@@ -107,7 +107,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_team">
                     <div class="thumb">
-                        <img src="img/team/2.png" alt="">
+                        <img src="client/img/team/2.png" alt="">
                     </div>
                     <div class="member_name text-center">
                         <div class="mamber_inner">
@@ -120,7 +120,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_team">
                     <div class="thumb">
-                        <img src="img/team/3.png" alt="">
+                        <img src="client/img/team/3.png" alt="">
                     </div>
                     <div class="member_name text-center">
                         <div class="mamber_inner">

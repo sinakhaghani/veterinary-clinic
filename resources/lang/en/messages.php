@@ -54,6 +54,14 @@ return[
 
     ],
 
+    'login' => [
+      'login' => 'ورود',
+      'reset_password' => 'رمز عبور خود را فراموش کردید؟',
+      'recovery' => 'بازیابی',
+      'email_or_mobile' => 'ایمیل یا موبایل',
+      'password' => 'رمز عبور',
+    ],
+
 
 
 
