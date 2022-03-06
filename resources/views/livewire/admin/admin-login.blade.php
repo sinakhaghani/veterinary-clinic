@@ -10,16 +10,18 @@
                         </div>
                         <div class="card-body">
                             <div class="card-block">
-                                <form>
+                                <form wire:submit.prevent="login">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <input type="email" class="form-control form-control-lg" name="inputEmail" id="inputEmail" placeholder="@lang('messages.login.email_or_mobile')" required email>
+                                            <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="@lang('messages.login.email_or_mobile')" required wire:model.debounce.1000ms="email">
+                                            @error('email') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <input type="password" class="form-control form-control-lg" name="inputPass" id="inputPass" placeholder="@lang('messages.login.password')" required>
+                                            <input type="password" class="form-control form-control-lg" name="inputPass" id="inputPass" placeholder="@lang('messages.login.password')" required wire:model.debounce.1000ms="password">
+                                            @error('password') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
 

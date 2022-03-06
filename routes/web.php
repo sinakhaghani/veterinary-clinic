@@ -18,7 +18,7 @@ Route::get('contact-us', \App\Http\Livewire\Client\ContactUs::class);
 Route::get('admin-login', \App\Http\Livewire\Admin\AdminLogin::class)->name('admin-login');
 
 
-Route::prefix('admin')->middleware(['auth'])->group(function (){
+Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/main', \App\Http\Livewire\Admin\Index::class)->name('main');
 });
 
