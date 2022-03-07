@@ -1,3 +1,11 @@
+.showSweetAlert h2 {
+    font-family: 'iransans', Verdana, Tahoma, serif !important;
+    font-size: 22px;
+}
+.sweet-alert button {
+    direction: rtl;
+}
+
 @font-face {
 	font-family: 'Simple-Line-Icons';
 	src:url('fonts/Simple-Line-Icons.eot');

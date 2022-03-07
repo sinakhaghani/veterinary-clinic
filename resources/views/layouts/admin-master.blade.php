@@ -3,6 +3,7 @@
 
 <!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 15:00:28 GMT -->
 <head>
+    <livewire:styles />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -34,6 +35,8 @@
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 <!-- BEGIN VENDOR JS-->
+<livewire:scripts />
+
 <script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script><script src="/admin/js/persian-datepicker.min.js"></script>
 <script src="/admin/vendors/js/core/popper.min.js"></script>
 <script src="/admin/vendors/js/core/bootstrap.min.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AdminLogin extends Component
@@ -10,7 +11,7 @@ class AdminLogin extends Component
     public $password;
 
     protected $rules = [
-      'email' => 'required|email|exists:users',
+      'email' => 'required|email|exists:users,email',
       'password' => 'required|min:8',
     ];
 
@@ -22,7 +23,9 @@ class AdminLogin extends Component
     public function login()
     {
         $this->validate();
-        dd($this->email);
+        if (Auth::guard('admin')->attempt(['email' => $this->email, 'password' => $this->password]))
+            return redirect()->route('admin.main');
+        $this->emit('validateLogin', 'error', "ایمیل یا رمز عبور اشتباه است");
     }
 
 

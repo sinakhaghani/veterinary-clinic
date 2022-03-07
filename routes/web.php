@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\Client\Index::class);
 Route::get('contact-us', \App\Http\Livewire\Client\ContactUs::class);
-Route::get('admin-login', \App\Http\Livewire\Admin\AdminLogin::class)->name('admin-login');
+Route::get('admin-login', \App\Http\Livewire\Admin\AdminLogin::class)->name('admin.login')
+    ->middleware('logout');
 
 
 Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
-    Route::get('/main', \App\Http\Livewire\Admin\Index::class)->name('main');
+    Route::get('/main', \App\Http\Livewire\Admin\Index::class)->name('admin.main');
 });
 
 

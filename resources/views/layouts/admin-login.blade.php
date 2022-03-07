@@ -19,6 +19,7 @@
         {{ $slot  }}
 
         <livewire:scripts />
+
     </body>
 
 </html>
