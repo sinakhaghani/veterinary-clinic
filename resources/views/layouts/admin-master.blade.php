@@ -27,10 +27,13 @@
 <body data-col="2-columns" class=" 2-columns ">
 
 <div class="wrapper">
-    <livewire:admin.layouts.app-sidebar />
-    <livewire:admin.layouts.navbar />
+        <livewire:admin.layouts.app-sidebar />
+        <livewire:admin.layouts.navbar />
+    <div class="main-panel">
+        {{ $slot  }}
 
-    {{ $slot  }}
+        <livewire:admin.layouts.footer />
+    </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 

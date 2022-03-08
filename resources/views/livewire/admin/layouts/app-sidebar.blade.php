@@ -12,7 +12,7 @@
                 <li class="has-sub nav-item"><a href="#"><i class="fa fa-users" aria-hidden="true"></i>
                         <span data-i18n="" class="menu-title">دام</span></a>
                     <ul class="menu-content">
-                        <li><i class="fa fa-long-arrow-left"></i><a href="product.html"  class="menu-item">ثبت نام دامدار</a>
+                        <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.register.livestock') }}"  class="menu-item">ثبت نام دامدار</a>
                         </li>
                         <li><i class="fa fa-long-arrow-left"></i><a href="add-product.html" class="menu-item">ثبت شناسنامه</a>
                         </li>
