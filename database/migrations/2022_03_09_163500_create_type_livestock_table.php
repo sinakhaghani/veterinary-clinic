@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLivestocksTable extends Migration
+class CreateTypeLivestockTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateLivestocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('livestocks', function (Blueprint $table) {
+        Schema::create('type_livestock', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('mobile');
-            $table->integer('type_livestock')->unsigned();
-            $table->foreign('type_livestock')->references('id')->on('type_livestock');
-            $table->string('address');
+            $table->text('medicine');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateLivestocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livestocks');
+        Schema::dropIfExists('type_livestock');
     }
 }

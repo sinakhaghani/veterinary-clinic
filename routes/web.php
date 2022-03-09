@@ -22,6 +22,7 @@ Route::get('admin-login', \App\Http\Livewire\Admin\AdminLogin::class)->name('adm
 Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/main', \App\Http\Livewire\Admin\Index::class)->name('admin.main');
     Route::get('/register-livestock', \App\Http\Livewire\Admin\RegisterLivestock::class)->name('admin.register.livestock');
+    Route::get('/register-type-pet', \App\Http\Livewire\Admin\TypeLivestock::class)->name('admin.register.type.livestock');
 });
 
 

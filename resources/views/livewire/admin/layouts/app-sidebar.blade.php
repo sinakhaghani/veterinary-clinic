@@ -16,7 +16,9 @@
                         </li>
                         <li><i class="fa fa-long-arrow-left"></i><a href="add-product.html" class="menu-item">ثبت شناسنامه</a>
                         </li>
+                        <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.register.type.livestock') }}" class="menu-item">ثبت نوع دام</a>
                         </li>
+
                     </ul>
                 </li>
 
