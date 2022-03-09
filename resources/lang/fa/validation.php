@@ -150,6 +150,8 @@ return [
     'attributes' => [
         'email'                 => 'ایمیل',
         'password'              => 'گذرواژه',
+        'nameLivestock'         => 'نام دام',
+        'medicine'              => 'دارو',
     ],
 
 ];

@@ -7,16 +7,19 @@
                         <h2 class="content-header">ثبت نوع دام</h2>
                     </div>
                 </div>
-                <form action="">
+                <form wire:submit.prevent="register">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
-                                        <div class="col-md-6"> <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" required>
+                                        <div class="col-md-6">
+                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" required wire:model.debounce.1000ms="nameLivestock">
+                                            @error('nameLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <textarea class="form-control round addpo" placeholder="نام داروها"></textarea>
+                                            <textarea class="form-control round addpo" placeholder="نام داروها" wire:model.debounce.1000ms="medicine"></textarea>
+                                            @error('medicine') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -39,3 +42,4 @@
         </div>
     </div>
 </div>
+<script src="{{ mix('/js/app.js') }}"></script>

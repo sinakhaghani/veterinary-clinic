@@ -5536,6 +5536,16 @@ window.addEventListener('livewire:load', function () {
     });
     console.log(type, message);
   });
+  Livewire.on('registerTypeLivestock', function (type, message) {
+    Swal.fire({
+      icon: type,
+      title: message,
+      text: '',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    console.log(type, message);
+  });
 });
 
 /***/ }),
