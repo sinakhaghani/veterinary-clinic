@@ -26,10 +26,10 @@ class TypeLivestock extends Component
         'name' => $this->nameLivestock,
         'medicine' => $this->medicine,
     ]);
-        if ($register)
+        if (!$register->exists)
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         else
-            $this->emit('registerTypeLivestock', 'error', "ثبت انجام نشد، لطفا دوباره امتحان کنید");
+            $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");
     }
 
     public function render()

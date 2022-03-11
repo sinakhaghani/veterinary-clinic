@@ -16,7 +16,7 @@ class CreateTypeLivestockTable extends Migration
         Schema::create('type_livestock', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('medicine');
+            $table->string('medicine');
             $table->timestamps();
         });
     }

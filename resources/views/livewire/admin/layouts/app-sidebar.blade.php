@@ -26,7 +26,7 @@
                     <ul class="menu-content">
                         <li><i class="fa fa-long-arrow-left"></i><a href="view-user.html"  class="menu-item">ثبت نسخه</a>
                         </li>
-                        <li><i class="fa fa-long-arrow-left"></i><a href="add-user.html" class="menu-item">ثبت دارو</a>
+                        <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.register.medicines') }}" class="menu-item">ثبت دارو</a>
                         </li>
                     </ul>
                 </li>
