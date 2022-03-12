@@ -13,18 +13,26 @@
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" required wire:model.debounce.1000ms="nameLivestock">
                                             @error('nameLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
-                                        <div class="col-md-6">
-                                            <textarea class="form-control round addpo" placeholder="نام داروها" wire:model.debounce.1000ms="medicine"></textarea>
-                                            @error('medicine') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+
+                                    </div>
+                                    <div class="row mt-3">
+                                        <label class="form-check-label font-medium-1" for="inlineCheckbox1">داروها:</label>
+                                        <div class="col-md-12 mt-2">
+                                           @foreach($medicineGet as $medicine)
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label font-medium-1" for="inlineCheckbox1">{{ $medicine['title'] }}</label>
+                                                    <input class="form-check-input" type="checkbox" name="medicine" id="inlineCheckbox1" value="{{ $medicine['id'] }}"  wire:model="medicine.{{$medicine['id']}}">
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="card-body">
+                                <div class="card-body mt-4">
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12">

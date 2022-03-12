@@ -13,7 +13,7 @@ class CreateLivestockTypeLivestocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('livestock_type_livestocks', function (Blueprint $table) {
+        Schema::create('livestock_type_livestock', function (Blueprint $table) {
             $table->id();
             $table->integer('livestock_id')->unsigned();
             $table->foreign('livestock_id')->references('id')->on('livestock');

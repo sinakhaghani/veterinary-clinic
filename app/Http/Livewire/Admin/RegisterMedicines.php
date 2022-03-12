@@ -22,7 +22,7 @@ class RegisterMedicines extends Component
     {
         $this->validate();
         $medicine = Medicine::create([
-            'name' => $this->title,
+            'title' => $this->title,
             'description' => $this->description,
         ]);
 

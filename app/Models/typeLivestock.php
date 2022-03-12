@@ -10,5 +10,5 @@ class TypeLivestock extends Model
     use HasFactory;
 
     protected $table = 'type_livestock';
-    protected $fillable = ['name', 'medicine'];
+    protected $fillable = ['title', 'medicine'];
 }
