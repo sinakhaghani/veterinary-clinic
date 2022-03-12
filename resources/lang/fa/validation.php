@@ -152,6 +152,7 @@ return [
         'password'              => 'گذرواژه',
         'nameLivestock'         => 'نام دام',
         'medicine'              => 'دارو',
+        'title'              => 'عنوان',
     ],
 
 ];

@@ -14,8 +14,8 @@
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دارو" required wire:model.debounce.1000ms="nameMedicines">
-                                            @error('nameMedicines') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دارو" required wire:model.debounce.1000ms="title">
+                                            @error('title') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" id="roundText" class="form-control round addpo" placeholder="توضیحات" wire:model.debounce.1000ms="description">
