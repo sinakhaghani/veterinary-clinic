@@ -153,6 +153,8 @@ return [
         'nameLivestock'         => 'نام دام',
         'medicine'              => 'دارو',
         'title'              => 'عنوان',
+        'name'              => 'نام دامدار',
+        'address'              => 'آدرس',
     ],
 
 ];

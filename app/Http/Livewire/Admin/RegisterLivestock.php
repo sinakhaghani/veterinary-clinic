@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Livestock;
+use App\Models\LivestockTypeLivestock;
 use Livewire\Component;
 
 class RegisterLivestock extends Component
@@ -10,17 +12,43 @@ class RegisterLivestock extends Component
     public $mobile;
     public $typeLivestock;
     public $address;
+    public $option;
 
     protected $rules = [
         'name' => 'required|string|min:3|max:150',
-        'mobile' => 'required|number|min:11|max:11',
-        'typeLivestock' => 'required|integer',
-        'address' => 'required|string|max:191',
+        'mobile' => 'required|numeric',
+        'typeLivestock.*' => 'required|min:1',
+        'address' => 'max:191',
     ];
 
-    public function updated($value)
+    public function mount()
     {
-        $this->validateOnly($value);
+        $this->option = \App\Models\TypeLivestock::all();
+    }
+
+    public function updated($name)
+    {
+        $this->validateOnly($name);
+    }
+
+    public function register()
+    {
+        $this->validate();
+        $register = Livestock::create([
+            'name' => $this->name,
+            'mobile' => $this->mobile,
+            'address' => $this->address,
+        ]);
+        if ($register) {
+            foreach ($this->typeLivestock as $livestock) {
+                $live = new LivestockTypeLivestock();
+                $live->livestock_id = $register->id;
+                $live->type_livestock_id = $livestock;
+                $live->save();
+            }
+            $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
+        } else
+            $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");
     }
 
     public function render()

@@ -17,9 +17,8 @@ class CreateLivestocksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('mobile');
-            $table->integer('type_livestock')->unsigned();
-            $table->foreign('type_livestock')->references('id')->on('type_livestock');
-            $table->string('address');
+            $table->string('address')->nullable();
+            $table->string('code_verify')->nullable();
             $table->timestamps();
         });
     }
