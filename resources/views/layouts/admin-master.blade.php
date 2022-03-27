@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="/admin/vendors/css/prism.min.css">
     <link rel="stylesheet" type="text/css" href="/admin/vendors/css/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/PersianDatePicker/persian-datepicker-main.min.css"/>
 </head>
 <body data-col="2-columns" class=" 2-columns ">
 
@@ -40,7 +41,9 @@
 <!-- BEGIN VENDOR JS-->
 <livewire:scripts />
 
-<script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script><script src="/admin/js/persian-datepicker.min.js"></script>
+<script src="/admin/js/PersianDatePicker/persian-date-main.min.js"></script>
+<script src="/admin/js/PersianDatePicker/persian-datepicker-main.min.js"></script>
+<script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script>
 <script src="/admin/vendors/js/core/popper.min.js"></script>
 <script src="/admin/vendors/js/core/bootstrap.min.js"></script>
 <script src="/admin/vendors/js/perfect-scrollbar.jquery.min.js"></script>
@@ -50,7 +53,7 @@
 <script src="/admin/vendors/js/pace/pace.min.js"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
-<script src="/admin/vendors/js/chartist.min.js"></script>
+{{--<script src="/admin/vendors/js/chartist.min.js"></script>--}}
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN CONVEX JS-->
 <script src="/admin/js/app-sidebar.js"></script>
@@ -58,8 +61,29 @@
 <script src="/admin/js/customizer.js"></script>
 <!-- END CONVEX JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="/admin/js/dashboard-ecommerce.js"></script>
+{{--<script src="/admin/js/dashboard-ecommerce.js"></script>--}}
 <!-- END PAGE LEVEL JS-->
+
+<script>
+
+    $(document).ready(function () {
+        $(".persianDatePicker").persianDatepicker({
+            autoClose: true,
+            initialValueType: 'gregorian',
+            persianDigit: false,
+            initialValue: false,
+            observer: true,
+            calendarType: 'persian',
+            calendar:{
+                persian: {
+                    locale: 'en'
+                }
+            },
+            format: 'YYYY-MM-DD',
+        });
+    });
+
+</script>
 </body>
 
 <!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-2/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 15:01:20 GMT -->

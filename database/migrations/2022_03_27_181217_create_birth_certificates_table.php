@@ -19,7 +19,7 @@ class CreateBirthCertificatesTable extends Migration
             $table->integer('type')->unsigned();
             $table->foreign('type')->references('id')->on('type_livestock');
             $table->string('race')->nullable();
-            $table->string('date_birth')->nullable();
+            $table->timestamp('date_birth')->nullable();
             $table->string('sex')->nullable();
             $table->string('color')->nullable();
             $table->timestamps();
