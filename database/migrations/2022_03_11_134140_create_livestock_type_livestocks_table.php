@@ -18,7 +18,7 @@ class CreateLivestockTypeLivestocksTable extends Migration
             $table->integer('livestock_id')->unsigned();
             $table->foreign('livestock_id')->references('id')->on('livestock');
             $table->integer('type_livestock_id')->unsigned();
-            $table->foreign('type_livestock_id')->references('id')->on('type_livestock');
+            $table->foreign('type_livestock_id')->references('id')->on('birth_certificates');
             $table->timestamps();
         });
     }
