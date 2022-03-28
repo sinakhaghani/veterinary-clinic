@@ -14,8 +14,8 @@
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام" style="margin-top: 10px" required wire:model.debounce.1000ms="name">
-                                            @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام" style="margin-top: 10px" required wire:model.debounce.1000ms="nameLive">
+                                            @error('nameLive') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -23,10 +23,10 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <select class="form-control round addpo">
+                                                <select class="form-control round addpo" wire:model.debounce.1000ms="typeLivestock">
                                                     <option value="">نوع دام را انتخاب کنید</option>
                                                 @foreach($option as $item)
-                                                        <option value="{{ $item['id'] }}" wire:model="typeLivestock.{{$item['id']}}"> {{ $item['title'] }}  </option>
+                                                        <option value="{{ $item['id'] }}" > {{ $item['title'] }}  </option>
                                                 @endforeach
                                                 </select>
                                                 @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
@@ -38,20 +38,25 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <input type="text" class="persianDatePicker form-control round addpo" placeholder="تاریخ تولد" style="margin-top: 10px" wire:model.debounce.1000ms="dateBirth">
+                                                @error('dateBirth') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-md-6">
                                                 <input style="margin-top: 10px" type="text" id="roundText" class="form-control round addpo" placeholder="نژاد" required wire:model.debounce.1000ms="race">
-                                                @error('mobile') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                                @error('race') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" id="roundText" class="persianDatePicker form-control round addpo" placeholder="تاریخ تولد" style="margin-top: 10px" wire:model.debounce.1000ms="dateBirth">
-                                                @error('address') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" id="roundText" class="form-control round addpo" placeholder="جنس" style="margin-top: 10px" wire:model.debounce.1000ms="sex">
-                                                @error('address') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                                <select style="margin-top: 10px" class="form-control round addpo" wire:model.debounce.1000ms="sex">
+                                                    <option value="">جنسیت</option>
+                                                    <option value="male">نر</option>
+                                                    <option value="female">ماده</option>
+                                                </select>
+                                                @error('sex') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="text" id="roundText" class="form-control round addpo" placeholder="رنگ" style="margin-top: 10px" wire:model.debounce.1000ms="color">
-                                                @error('address') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                                @error('color') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>

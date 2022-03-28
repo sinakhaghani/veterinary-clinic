@@ -155,6 +155,9 @@ return [
         'title'              => 'عنوان',
         'name'              => 'نام دامدار',
         'address'              => 'آدرس',
+        'nameLive'              => 'نام دام',
+        'typeLivestock'              => 'نوع دام',
+        'dateBirth'              => 'تاریخ تولد',
     ],
 
 ];

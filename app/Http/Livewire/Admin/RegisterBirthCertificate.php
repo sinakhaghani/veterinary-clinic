@@ -2,13 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\BirthCertificate;
 use Livewire\Component;
 
 class RegisterBirthCertificate extends Component
 {
     public $typeLivestock;
-    public $name;
+    public $nameLive;
     public $dateBirth;
+    public $race;
     public $sex;
     public $color;
     public $option;
@@ -24,11 +26,12 @@ class RegisterBirthCertificate extends Component
     }
 
     protected $rules = [
-        'name' => 'required|string|min:2|max:150',
+        'nameLive' => 'required|string|min:2|max:150',
         'dateBirth' => 'date',
-        'typeLivestock.*' => 'required|min:1|exists:type_livestock,id',
+        'typeLivestock' => 'required|min:1|exists:type_livestock,id',
         'sex' => 'max:191',
         'color' => 'max:191',
+        'race' => 'max:191',
     ];
 
     public function updated($name)
@@ -39,11 +42,13 @@ class RegisterBirthCertificate extends Component
     public function register()
     {
         $this->validate();
-        dd(23233);
-        $register = Livestock::create([
-            'name' => $this->name,
-            'mobile' => $this->mobile,
-            'address' => $this->address,
+        $register = BirthCertificate::create([
+            'name' => $this->nameLive,
+            'type' => $this->typeLivestock,
+            'race' => $this->race,
+            'date_birth' => $this->dateBirth,
+            'sex' => $this->sex,
+            'color' => $this->color,
         ]);
         if ($register) {
             foreach ($this->typeLivestock as $livestock) {

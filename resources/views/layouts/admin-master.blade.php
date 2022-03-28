@@ -40,10 +40,10 @@
 
 <!-- BEGIN VENDOR JS-->
 <livewire:scripts />
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/admin/js/PersianDatePicker/persian-date-main.min.js"></script>
 <script src="/admin/js/PersianDatePicker/persian-datepicker-main.min.js"></script>
-<script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script>
+{{--<script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script>--}}
 <script src="/admin/vendors/js/core/popper.min.js"></script>
 <script src="/admin/vendors/js/core/bootstrap.min.js"></script>
 <script src="/admin/vendors/js/perfect-scrollbar.jquery.min.js"></script>
@@ -67,19 +67,23 @@
 <script>
 
     $(document).ready(function () {
+
         $(".persianDatePicker").persianDatepicker({
             autoClose: true,
             initialValueType: 'gregorian',
-            persianDigit: false,
+            persianDigit: true,
             initialValue: false,
             observer: true,
             calendarType: 'persian',
             calendar:{
                 persian: {
-                    locale: 'en'
+                    locale:'en'
+                },
+                gregorian:{
+                    locale:'en'
                 }
             },
-            format: 'YYYY-MM-DD',
+            format: 'YYYY/MM/DD',
         });
     });
 
