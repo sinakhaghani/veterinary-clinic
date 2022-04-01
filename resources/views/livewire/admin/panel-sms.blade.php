@@ -7,7 +7,7 @@
                         <h2 class="content-header">پنل پیامک</h2>
                     </div>
                 </div>
-                <form wire:submit.prevent="register">
+                <form wire:submit.prevent="send">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -20,7 +20,7 @@
                                                 <option value="SimCard">SimCard</option>
                                                 <option value="News">News</option>
                                             </select>
-                                            @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            @error('type') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="text" id="roundText" class="form-control round addpo" placeholder="متن پیام" style="margin-top: 10px" required wire:model.debounce.1000ms="text">
-                                            @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            @error('text') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                                 @foreach($option as $item)
                                                     <div class="form-check form-check-inline mr-2">
                                                         <label class="form-check-label font-medium-1" for="inlineCheckbox1">{{ $item['name'] }}</label>
-                                                        <input class="form-check-input" type="checkbox" name="typeLivestock" id="inlineCheckbox1" value="{{ $item['id'] }}"  wire:model="typeLivestock.{{$item['id']}}">
+                                                        <input class="form-check-input" type="checkbox" name="typeLivestock" id="inlineCheckbox1" value="{{ $item['mobile'] }}"  wire:model="typeLivestock.{{$item['id']}}">
                                                     </div>
                                                 @endforeach
                                                 @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
