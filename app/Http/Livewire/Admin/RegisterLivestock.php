@@ -16,8 +16,7 @@ class RegisterLivestock extends Component
 
     protected $rules = [
         'name' => 'required|string|min:3|max:150',
-        'mobile' => 'required|numeric',
-        'typeLivestock.*' => 'required|min:1',
+        'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
         'address' => 'max:191',
     ];
 
@@ -40,12 +39,6 @@ class RegisterLivestock extends Component
             'address' => $this->address,
         ]);
         if ($register) {
-            foreach ($this->typeLivestock as $livestock) {
-                $live = new LivestockTypeLivestock();
-                $live->livestock_id = $register->id;
-                $live->type_livestock_id = $livestock;
-                $live->save();
-            }
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         } else
             $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");

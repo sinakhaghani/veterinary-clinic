@@ -16,8 +16,8 @@ window.addEventListener('livewire:load', () => {
             text: '',
             showConfirmButton: false,
             timer: 1500
-        })
-        console.log(type, message)
+        });
+        console.log(type, message);
     })
 
     Livewire.on('registerTypeLivestock', (type, message) => {
@@ -27,8 +27,8 @@ window.addEventListener('livewire:load', () => {
             text: '',
             showConfirmButton: false,
             timer: 1500
-        })
-        console.log(type, message)
+        });
+        console.log(type, message);
     })
 
     Livewire.on('registerMedicine', (type, message) => {
@@ -38,7 +38,7 @@ window.addEventListener('livewire:load', () => {
             text: '',
             showConfirmButton: false,
             timer: 1500
-        })
-        console.log(type, message)
+        });
+        console.log(type, message);
     })
 })

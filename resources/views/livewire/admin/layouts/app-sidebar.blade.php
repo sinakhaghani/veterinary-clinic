@@ -43,8 +43,11 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="nav-item"><a href="ticket.html"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">تیکت ها</span></a>
+                <li class="nav-item">
+                    <a href="{{route('admin.panel.sms')}}"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">پنل پیامک</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="ticket.html"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">تیکت ها</span></a>
                 </li>
             </ul>
         </div>

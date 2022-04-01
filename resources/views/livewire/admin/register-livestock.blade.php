@@ -22,23 +22,8 @@
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                @foreach($option as $item)
-                                                    <div class="form-check form-check-inline">
-                                                        <label class="form-check-label font-medium-1" for="inlineCheckbox1">{{ $item['title'] }}</label>
-                                                        <input class="form-check-input" type="checkbox" name="typeLivestock" id="inlineCheckbox1" value="{{ $item['id'] }}"  wire:model="typeLivestock.{{$item['id']}}">
-                                                    </div>
-                                                @endforeach
-                                                    @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="row">
                                             <div class="col-md-6">
-                                                <input style="margin-top: 10px" type="number" id="roundText" class="form-control round addpo" placeholder="شماره موبایل" required wire:model.debounce.1000ms="mobile">
+                                                <input style="margin-top: 10px" type="tel" id="roundText" class="form-control round addpo" maxlength="11" minlength="11" placeholder="شماره موبایل" required wire:model.debounce.1000ms="mobile">
                                                 @error('mobile') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -66,3 +51,4 @@
         </div>
     </div>
 </div>
+<script src="{{ mix('/js/app.js') }}"></script>

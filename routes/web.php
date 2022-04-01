@@ -25,6 +25,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/register-type-pet', \App\Http\Livewire\Admin\TypeLivestock::class)->name('admin.register.type.livestock');
     Route::get('/register-medicines', \App\Http\Livewire\Admin\RegisterMedicines::class)->name('admin.register.medicines');
     Route::get('/register-birth-certificate', \App\Http\Livewire\Admin\RegisterBirthCertificate::class)->name('admin.register.certificate');
+    Route::get('/panel-sms', \App\Http\Livewire\Admin\PanelSms::class)->name('admin.panel.sms');
 });
 
 

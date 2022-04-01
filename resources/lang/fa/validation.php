@@ -158,6 +158,7 @@ return [
         'nameLive'              => 'نام دام',
         'typeLivestock'              => 'نوع دام',
         'dateBirth'              => 'تاریخ تولد',
+        'mobile'              => 'تلفن همراه',
     ],
 
 ];
