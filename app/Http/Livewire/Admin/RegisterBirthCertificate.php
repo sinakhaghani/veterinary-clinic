@@ -9,6 +9,7 @@ use Livewire\Component;
 class RegisterBirthCertificate extends Component
 {
     public $typeLivestock;
+    public $owner;
     public $nameLive;
     public $dateBirth;
     public $race;
@@ -29,8 +30,9 @@ class RegisterBirthCertificate extends Component
     }
 
     protected $rules = [
+        'owner' => 'required|numeric|min:1',
         'nameLive' => 'required|string|min:2|max:150',
-        'dateBirth' => 'date',
+        'dateBirth' => '',
         'typeLivestock' => 'required|min:1|exists:type_livestock,id',
         'sex' => 'max:191',
         'color' => 'max:191',
@@ -43,10 +45,12 @@ class RegisterBirthCertificate extends Component
     }
 
     public function register()
-    {
+    {dd($this);
         $this->validate();
+
         $register = BirthCertificate::create([
             'name' => $this->nameLive,
+            'owner' => $this->owner,
             'type' => $this->typeLivestock,
             'race' => $this->race,
             'date_birth' => $this->dateBirth,
@@ -54,14 +58,8 @@ class RegisterBirthCertificate extends Component
             'color' => $this->color,
         ]);
         if ($register) {
-            foreach ($this->typeLivestock as $livestock) {
-                $live = new LivestockTypeLivestock();
-                $live->livestock_id = $register->id;
-                $live->type_livestock_id = $livestock;
-                $live->save();
-            }
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         } else
-            $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");
+            $this->emit('registerTypeLivestock', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
     }
 }

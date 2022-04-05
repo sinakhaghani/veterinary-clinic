@@ -16,6 +16,8 @@ class CreateBirthCertificatesTable extends Migration
         Schema::create('birth_certificates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('owner')->unsigned();
+            $table->foreign('owner')->references('id')->on('livestock');
             $table->integer('type')->unsigned();
             $table->foreign('type')->references('id')->on('type_livestock');
             $table->string('race')->nullable();

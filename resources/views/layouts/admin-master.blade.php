@@ -77,11 +77,11 @@
 
     $(document).ready(function () {
 
-        $(".persianDatePicker").persianDatepicker({
+        $("#persianDatePicker").persianDatepicker({
             autoClose: true,
             initialValueType: 'gregorian',
             persianDigit: true,
-            initialValue: false,
+            initialValue: true,
             observer: true,
             calendarType: 'persian',
             calendar:{
