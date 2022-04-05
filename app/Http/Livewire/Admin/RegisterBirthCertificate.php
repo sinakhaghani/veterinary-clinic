@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\BirthCertificate;
+use App\Models\Livestock;
 use Livewire\Component;
 
 class RegisterBirthCertificate extends Component
@@ -14,6 +15,7 @@ class RegisterBirthCertificate extends Component
     public $sex;
     public $color;
     public $option;
+    public $livestock;
 
     public function render()
     {
@@ -23,6 +25,7 @@ class RegisterBirthCertificate extends Component
     public function mount()
     {
         $this->option = \App\Models\TypeLivestock::all();
+        $this->livestock = Livestock::all();
     }
 
     protected $rules = [

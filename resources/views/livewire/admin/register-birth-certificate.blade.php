@@ -11,6 +11,21 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
+
+                                <div class="card-header" dir="rtl">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select  class="select round" tabindex="1" style="width: 100%;" wire:model.debounce.1000ms="user">
+                                                <option value="">کاربر مورد نظر را انتخاب کنید</option>
+                                                @foreach($livestock as $item)
+                                                    <option value="{{ $item['id'] }}" > {{ $item['name'].' '.$item['mobile'] }}  </option>
+                                                @endforeach
+                                            </select>
+                                            @error('user') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">

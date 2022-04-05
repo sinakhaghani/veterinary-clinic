@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="/admin/vendors/css/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/app.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/PersianDatePicker/persian-datepicker-main.min.css"/>
+    <link rel="stylesheet"  href="/admin/js/docsupport/prism.css">
+    <link rel="stylesheet"  href="/admin/js/docsupport/chosen.css">
 </head>
 <body data-col="2-columns" class=" 2-columns ">
 
@@ -40,7 +42,7 @@
 
 <!-- BEGIN VENDOR JS-->
 <livewire:scripts />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/admin/js/PersianDatePicker/persian-date-main.min.js"></script>
 <script src="/admin/js/PersianDatePicker/persian-datepicker-main.min.js"></script>
 {{--<script src="/admin/vendors/js/core/jquery-3.3.1.min.js"></script>--}}
@@ -63,7 +65,14 @@
 <!-- BEGIN PAGE LEVEL JS-->
 {{--<script src="/admin/js/dashboard-ecommerce.js"></script>--}}
 <!-- END PAGE LEVEL JS-->
+{{--<script src="/admin/js/docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>--}}
+<script src="/admin/js/docsupport/chosen.jquery.js" type="text/javascript"></script>
+<script src="/admin/js/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+<script src="/admin/js/docsupport/init.js" type="text/javascript" charset="utf-8"></script>
 
+<script>
+    $(".select").chosen({max_selected_options: 5});
+</script>
 <script>
 
     $(document).ready(function () {

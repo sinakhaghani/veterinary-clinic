@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class PanelSms extends Component
@@ -31,29 +32,18 @@ class PanelSms extends Component
 
     public function send()
     {
-        $parameters['userName'] = env('PANEL_SMS_USERNAME');
-        $parameters['password'] = env('PANEL_SMS_PASSWORD');
-        $parameters['fromNumber'] = $this->type;
-        $parameters['toNumbers'] = collect($this->typeLivestock)->values()->toArray();
-        $parameters['messageContent'] = $this->text;
-        $parameters['isFlash'] = false;
-        $recId = array(0);
-        $status = 0x0;
-        $parameters['recId'] = &$recId ;
-        $parameters['status'] = &$status ;
+        $parameters['UserName'] = env('PANEL_SMS_USERNAME');
+        $parameters['Password'] = env('PANEL_SMS_PASSWORD');
+        $parameters['From'] = $this->type;
+        $parameters['To'] = collect($this->typeLivestock)->values()->toArray();
+        $parameters['Message'] = $this->text;
         $data = json_encode($parameters);
         $url = "https://login.niazpardaz.ir/SMSInOutBox/Send";
-        /*$client = new Client([
-            'headers' => [
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json; charset=utf-8',
-                'encoding'=>'UTF-8',
-            ]
-        ]);*/
-        $client = new Client();
-        $response = $client->post($url,[
-            'json' => $data,
-            'verify' => false,
+        //$url = "http://payamak-service.ir/SendService.svc?wsdl";
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json charset=UTF8',
+        ])->post($url, [
+            'params' => $data,
         ]);
         $response = json_decode($response->getBody(), true);
         dd($response);
