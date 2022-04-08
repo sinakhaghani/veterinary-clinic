@@ -33,6 +33,7 @@
         <livewire:admin.layouts.app-sidebar />
         <livewire:admin.layouts.navbar />
     <div class="main-panel">
+
         {{ $slot  }}
 
         <livewire:admin.layouts.footer />
@@ -66,13 +67,13 @@
 {{--<script src="/admin/js/dashboard-ecommerce.js"></script>--}}
 <!-- END PAGE LEVEL JS-->
 {{--<script src="/admin/js/docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>--}}
-<script src="/admin/js/docsupport/chosen.jquery.js" type="text/javascript"></script>
+{{--<script src="/admin/js/docsupport/chosen.jquery.js" type="text/javascript"></script>
 <script src="/admin/js/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
-<script src="/admin/js/docsupport/init.js" type="text/javascript" charset="utf-8"></script>
+<script src="/admin/js/docsupport/init.js" type="text/javascript" charset="utf-8"></script>--}}
 
-<script>
+{{--<script>
     $(".select").chosen({max_selected_options: 5});
-</script>
+</script>--}}
 <script>
 
     $(document).ready(function () {
@@ -93,6 +94,34 @@
                 }
             },
             format: 'YYYY/MM/DD',
+
+            onSelect: function(unix){
+                String.prototype.toEnglishDigit = function() {
+                    let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                    let replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                    let replaceString = this;
+                    let regex;
+                    for (let i = 0; i < find.length; i++) {
+                        regex = new RegExp(find[i], "g");
+                        replaceString = replaceString.replace(regex, replace[i]);
+                    } return replaceString;
+                };
+                String.prototype.changeFormatDate = function() {
+                    let newArray = [];
+                    let array = this.split("/");
+                    array.forEach(function (item,index){
+                        if (item.length == 1){
+                            return newArray[index] = '0'+item;
+                        }
+                        else {
+                            return newArray[index] = item;
+                        }
+                    });
+                    return newArray.join("/");
+                };
+                let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
+                $('.persianDatePicker').val(today);
+            },
         });
     });
 
