@@ -25,7 +25,8 @@ class RegisterBirthCertificate extends Component
     {
        // $livestock = ;
         return view('livewire.admin.register-birth-certificate', [
-            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray()
+            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
+
         ])->layout('layouts.admin-master');
     }
 
@@ -35,9 +36,9 @@ class RegisterBirthCertificate extends Component
     }
 
     protected $rules = [
-        'owner' => 'required|numeric|min:1',
+        'owner' => 'required|numeric|min:1|exists:livestock,id',
         'nameLive' => 'required|string|min:2|max:150',
-        'dateBirth' => '',
+        'dateBirth' => 'required|date',
         'typeLivestock' => 'required|min:1|exists:type_livestock,id',
         'sex' => 'max:191',
         'color' => 'max:191',
@@ -50,7 +51,8 @@ class RegisterBirthCertificate extends Component
     }
 
     public function register()
-    {dd($this);
+    {
+
         $this->validate();
 
         $register = BirthCertificate::create([

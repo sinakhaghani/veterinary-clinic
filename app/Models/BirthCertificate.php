@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BirthCertificate extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'owner', 'type', 'race', 'date_birth', 'sex', 'color'];
 }

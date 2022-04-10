@@ -14,22 +14,22 @@
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input class="form-control round" type="text" placeholder="جستجوی دامدار" wire:model="searchLivestock">
-                                            <select  class="select round mt-1" tabindex="1" style="width: 100%;" wire:model="owner">
-                                                @foreach($livestock as $item)
-                                                    <option value="{{ $item['id'] }}" > {{ $item['name'].' '.$item['mobile'] }}  </option>
-                                                @endforeach
-                                            </select>
-                                            @error('owner') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" wire:model.defer="nameLive">
+                                            @error('nameLive') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" required wire:model.defer="nameLive">
-                                            @error('nameLive') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            <input class="form-control round" type="text" placeholder="جستجوی دامدار" wire:model="searchLivestock">
+                                            <select  class="select round mt-1" tabindex="1" style="width: 100%;" wire:model="owner">
+                                                <option value="">نام دامدار انتخاب کنید</option>
+                                                @foreach($livestock as $item)
+                                                    <option value="{{ $item['id'] }}"> {{ $item['name'].' '.$item['mobile'] }}  </option>
+                                                @endforeach
+                                            </select>
+                                            @error('owner') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -52,11 +52,12 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input  id="persianDatePicker" type="text" class="persianDatePicker form-control round addpo" placeholder="تاریخ تولد" style="margin-top: 10px" required wire:model.defer="dateBirth">
+                                                <input value="" id="dateBirth" type="text" class="persianDatePicker form-control round addpo"
+                                                            placeholder="تاریخ تولد" style="margin-top: 10px" wire:model.defer="dateBirth">
                                                 @error('dateBirth') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
-                                                <input style="margin-top: 10px" type="text" id="roundText" class="form-control round addpo" placeholder="نژاد" required wire:model.defer="race">
+                                                <input style="margin-top: 10px" type="text" id="roundText" class="form-control round addpo" placeholder="نژاد" wire:model.defer="race">
                                                 @error('race') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -69,7 +70,7 @@
 
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" id="roundText" class="form-control round addpo" placeholder="رنگ" style="margin-top: 10px" wire:model.defer="color">
+                                                <input type="text" id="color" class="form-control round addpo" placeholder="رنگ" style="margin-top: 10px" wire:model.defer="color">
                                                 @error('color') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
@@ -93,4 +94,15 @@
         </div>
     </div>
 </div>
+
+    <script>
+
+
+       /* document.addEventListener('livewire:load', function () {
+
+        @this.set('dateBirth', 'aaaaa', true);
+
+        });*/
+
+    </script>
 
