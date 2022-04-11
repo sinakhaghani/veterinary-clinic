@@ -19,6 +19,7 @@ class CreateLivestocksTable extends Migration
             $table->string('mobile');
             $table->string('address')->nullable();
             $table->string('code_verify')->nullable();
+            $table->string('expire_time')->nullable();
             $table->timestamps();
         });
     }

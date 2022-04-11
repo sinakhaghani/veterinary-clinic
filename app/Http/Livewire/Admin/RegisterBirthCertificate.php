@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 
 class RegisterBirthCertificate extends Component
 {
-    use WithPagination;
+    //use WithPagination;
 
     public $typeLivestock;
     public $owner;
@@ -20,15 +20,6 @@ class RegisterBirthCertificate extends Component
     public $color;
     public $option;
     public $searchLivestock;
-
-    public function render()
-    {
-       // $livestock = ;
-        return view('livewire.admin.register-birth-certificate', [
-            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
-
-        ])->layout('layouts.admin-master');
-    }
 
     public function mount()
     {
@@ -54,7 +45,6 @@ class RegisterBirthCertificate extends Component
     {
 
         $this->validate();
-
         $register = BirthCertificate::create([
             'name' => $this->nameLive,
             'owner' => $this->owner,
@@ -64,9 +54,18 @@ class RegisterBirthCertificate extends Component
             'sex' => $this->sex,
             'color' => $this->color,
         ]);
-        if ($register) {
-            $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
-        } else
-            $this->emit('registerTypeLivestock', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+
+        if ($register)
+            $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
+        else
+            $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.register-birth-certificate', [
+            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
+
+        ])->layout('layouts.admin-master');
     }
 }
