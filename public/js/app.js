@@ -5566,6 +5566,14 @@ window.addEventListener('livewire:load', function () {
     });
     console.log(type, message);
   });
+  Livewire.on('registerButton', function (type, message) {
+    Swal.fire({
+      icon: type,
+      title: message,
+      text: 'Something went wrong!'
+    });
+    console.log(type, message);
+  });
 });
 
 /***/ }),

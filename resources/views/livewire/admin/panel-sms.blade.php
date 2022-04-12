@@ -12,7 +12,7 @@
                         <div class="col-lg-12">
                             <div class="card">
 
-                                <div class="card-header" dir="rtl">
+                               {{-- <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <select style="margin-top: 10px" class="form-control round addpo" wire:model.debounce.1000ms="type">
@@ -23,7 +23,7 @@
                                             @error('type') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
@@ -38,10 +38,14 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12">
+                                                <div class="form-check form-check-inline mr-2">
+                                                    <label class="form-check-label font-medium-1" for="inlineCheckbox1">همه</label>
+                                                    <input class="form-check-input" type="checkbox" id="checkAll" style="" >
+                                                </div>
                                                 @foreach($option as $item)
                                                     <div class="form-check form-check-inline mr-2">
                                                         <label class="form-check-label font-medium-1" for="inlineCheckbox1">{{ $item['name'] }}</label>
-                                                        <input class="form-check-input" type="checkbox" name="typeLivestock" id="inlineCheckbox1" value="{{ $item['mobile'] }}"  wire:model="typeLivestock.{{$item['id']}}">
+                                                        <input class="form-check-input" type="checkbox" name="typeLivestock" id="inlineCheckbox1" value="{{ $item['mobile'] }}"  wire:model="typeLivestock.{{$item['mobile']}}">
                                                     </div>
                                                 @endforeach
                                                 @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
@@ -67,3 +71,19 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#checkAll").click(function(){
+        $('input:checkbox').not(this).prop('checked', this.checked);
+        if ($('#checkAll').is(':checked'))
+        {
+             $('input[type=checkbox]').each(function () {
+                 let val = $(this).val();
+                 if (val != "on")
+                    @this.set('typeLivestock.'+val, val, true);
+             });
+        }
+    });
+
+</script>
+<script src="{{ mix('/js/app.js') }}"></script>
