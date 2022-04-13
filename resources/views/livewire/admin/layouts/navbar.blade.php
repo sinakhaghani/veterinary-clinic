@@ -15,7 +15,7 @@
                                 <p class="d-none">تنظیمات کاربر</p></a>
                             <form>
                                 <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-left">
-                                    <div class="arrow_box_right"><a href="user-profile-page.html" class="dropdown-item py-1"><i class="ft-edit ml-2"></i><span>پروفایل من</span></a>
+                                    <div class="arrow_box_right"><a href="{{ route('admin.edit.profile') }}" class="dropdown-item py-1"><i class="ft-edit ml-2"></i><span>پروفایل من</span></a>
                                         <div class="dropdown-divider"></div><a href="#" class="dropdown-item" wire:click="logout"><i class="ft-power ml-2"></i><span>خروج</span></a>
                                     </div>
                                 </div>

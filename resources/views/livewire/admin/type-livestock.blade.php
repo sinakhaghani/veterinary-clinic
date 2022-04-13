@@ -19,7 +19,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="row mt-3">
+                                   {{-- <div class="row mt-3">
                                         <label class="form-check-label font-medium-1" for="inlineCheckbox1">داروها:</label>
                                         <div class="col-md-12 mt-2">
                                            @foreach($medicineGet as $medicine)
@@ -29,7 +29,7 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
 
                                 <div class="card-body mt-4">

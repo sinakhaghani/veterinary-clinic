@@ -34,7 +34,7 @@ class TypeLivestock extends Component
      */
     protected $rules = [
         'title' => 'required|string|min:2|max:100',
-        'medicine.*' => 'required|numeric|min:1',
+        //'medicine.*' => 'required|numeric|min:1',
     ];
 
     /**
@@ -55,17 +55,11 @@ class TypeLivestock extends Component
         $register = \App\Models\TypeLivestock::firstOrCreate([
             'title' => $this->title,
         ]);
-        if ($register) {
-            foreach ($this->medicine as $medicine) {
-                $medicineLive = new MedicineLiveStock();
-                $medicineLive->livestock_id = $register->id;
-                $medicineLive->medicine_id = $medicine;
-                $medicineLive->save();
-            }
-            if ($medicineLive)
-                $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
-        } else
-            $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");
+
+        if ($register)
+            $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
+         else
+            $this->emit('register', 'error', "این دام قبلا ثبت شده است");
     }
 
     /**
