@@ -9,5 +9,10 @@ class BirthCertificate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'owner', 'type', 'race', 'date_birth', 'sex', 'color'];
+    protected $fillable = ['serial', 'name', 'owner', 'type_livestock', 'race', 'date_birth', 'sex', 'color'];
+
+    public function livestock()
+    {
+        return $this->belongsTo(Livestock::class, 'owner');
+    }
 }

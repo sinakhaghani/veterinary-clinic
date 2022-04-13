@@ -15,13 +15,13 @@ class CreateBirthCertificatesTable extends Migration
     {
         Schema::create('birth_certificates', function (Blueprint $table) {
             $table->id();
+            $table->string('serial')->unique();
             $table->string('name');
             $table->integer('owner')->unsigned();
             $table->foreign('owner')->references('id')->on('livestock');
-            $table->integer('type')->unsigned();
-            $table->foreign('type')->references('id')->on('type_livestock');
+            $table->string('type_livestock')->nullable();
             $table->string('race')->nullable();
-            $table->dateTime('date_birth')->nullable();
+            $table->date('date_birth')->nullable();
             $table->string('sex')->nullable();
             $table->string('color')->nullable();
             $table->timestamps();
