@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-none d-sm-block mb-5 pb-4">
 
-            <div id="map" style="height: 480px; position: relative; overflow: hidden";></div>
+            {{--<div id="map" style="height: 480px; position: relative; overflow: hidden";></div>--}}
 
             <script>
                 // Initialize and add the map

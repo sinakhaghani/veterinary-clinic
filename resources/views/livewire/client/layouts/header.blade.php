@@ -7,7 +7,7 @@
                         <div class="short_contact_list">
                             <ul>
                                 <li><a href="#">@lang('messages.contact_us.tel')</a></li>
-                                <li><a href="#" id="date"> </a></li>
+                                <li><a href="#" id="date"><script> document.write(new Date().toLocaleDateString('fa-IR'));</script> </a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,9 +59,4 @@
         </div>
     </div>
 </header>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    let today = new Date().toLocaleDateString('fa-IR');
-    $("#date").val(today);
-</script>
 
