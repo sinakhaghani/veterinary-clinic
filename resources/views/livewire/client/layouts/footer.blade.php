@@ -7,12 +7,12 @@
                 <div class="col-xl-3 col-md-6 col-lg-3 ">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            همکاران ما
+                            برخی از همکاران ما
                         </h3>
                         <ul class="links">
-                            <li><a href="#">دکتر زمانیان</a></li>
-                            <li><a href="#">مهدی کاظمی نژاد</a></li>
-                            <li><a href="#">سینا خاقانی</a></li>
+                            <li><a href="#">دکتر حجت زمانیان</a></li>
+                            <li><a href="#">مرداد شاملو</a></li>
+                            <li><a href="#">مهدی کاظم نژادی</a></li>
                         </ul>
                     </div>
                 </div>

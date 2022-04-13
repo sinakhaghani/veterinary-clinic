@@ -10,8 +10,8 @@ return[
     ],
 
     'contact_us' => [
-      'tel' => '0915242222',
-      'mail' => 'sina.kh@gmail.com',
+      'tel' => '051-36583641',
+      'mail' => 'saba_clinic@info',
       'mail_title' => 'آدرس ایمیل',
       'address' => 'مشهد - خیابان آزادی',
       'address_second' => 'آزادی 57 پلاک 3',
