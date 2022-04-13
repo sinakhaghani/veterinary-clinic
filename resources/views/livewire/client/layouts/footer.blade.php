@@ -5,32 +5,38 @@
             <div class="row">
 
                 <div class="col-xl-3 col-md-6 col-lg-3 ">
-                </div>
-                <div class="col-xl-3  col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Our Servces
+                            همکاران ما
                         </h3>
                         <ul class="links">
-                            <li><a href="#">Pet Insurance</a></li>
-                            <li><a href="#">Pet surgeries </a></li>
-                            <li><a href="#">Pet Adoption</a></li>
-                            <li><a href="#">Dog Insurance</a></li>
-                            <li><a href="#">Dog Insurance</a></li>
+                            <li><a href="#">دکتر زمانیان</a></li>
+                            <li><a href="#">مهدی کاظمی نژاد</a></li>
+                            <li><a href="#">سینا خاقانی</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3  col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Quick Link
+                            خدمات ما
                         </h3>
                         <ul class="links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Login info</a></li>
-                            <li><a href="#">Knowledge Base</a></li>
+                            <li><a href="#">معاینه</a></li>
+                            <li><a href="#">عمل جراحی</a></li>
+                            <li><a href="#">واکسیناسیون</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3  col-md-6 col-lg-3">
+                    <div class="footer_widget">
+                        <h3 class="footer_title">
+                            لینکهای سایت
+                        </h3>
+                        <ul class="links">
+                            <li><a href="#">صفحه اصلی</a></li>
+                            <li><a href="#">درباره ما</a></li>
+                            <li><a href="#">ارتباط با ما</a></li>
                         </ul>
                     </div>
                 </div>

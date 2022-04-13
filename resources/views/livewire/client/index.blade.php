@@ -5,7 +5,7 @@
             <div class="col-lg-7 col-md-10">
                 <div class="section_title text-center mb-95">
                     <h3>@lang('messages.index.service_area.service_area_start')</h3>
-                    <p>کلینیک صبا ارائه دهنده ی بهترین خدمات درمانی و سلامتی حیوانات خانگی از جمله سگها می باشد</p>
+                    <p>@lang('messages.index.service_area.text_service_area')</p>
                 </div>
             </div>
         </div>
@@ -67,9 +67,9 @@
                 <div class="pet_info">
                     <div class="section_title">
                         <h3><span>@lang('messages.index.pet_care_area.title_first') </span>
-                        <p>Lorem ipsum dolor sit , consectetur adipiscing elit, sed do <br> iusmod tempor incididunt ut labore et dolore magna aliqua. <br> Quis ipsum suspendisse ultrices gravida. Risus commodo <br>
-                            viverra maecenas accumsan.</p>
-                        <a href="about.html" class="boxed-btn3">About Us</a>
+                        <p>@lang('messages.index.pet_care_area.text_first') <br> @lang('messages.index.pet_care_area.text_second') <br> @lang('messages.index.pet_care_area.text_third') <br>
+                            @lang('messages.index.pet_care_area.text_fourth')</p>
+                        <a href="about.html" class="boxed-btn3">@lang('messages.menu.about_us')</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
 
 
 <!-- team_area_start  -->
-<div class="team_area">
+{{--<div class="team_area">
     <div class="container">
         <div class="row justify-content-center ">
             <div class="col-lg-6 col-md-10">
@@ -132,5 +132,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 <!-- team_area_start  -->

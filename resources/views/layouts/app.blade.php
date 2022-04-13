@@ -37,6 +37,7 @@
         <livewire:client.layouts.footer />
     <livewire:scripts />
     {{--<script src="{{ mix('js/app.js') }}" defer></script>--}}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="/client/js/bootstrap.min.js"></script>
         <script src="/client/js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="/client/js/vendor/jquery-1.12.4.min.js"></script>
@@ -64,7 +65,7 @@
         <script src="/client/js/mail-script.js"></script>
         <script src="/client/js/main.js"></script>
         <script>
-            $('#datepicker').datepicker({
+/*            $('#datepicker').datepicker({
                 iconsLibrary: 'fontawesome',
                 disableDaysOfWeek: [0, 0],
                 //     icons: {
@@ -80,7 +81,10 @@
             });
             var timepicker = $('#timepicker').timepicker({
                 format: 'HH.MM'
-            });
+            });*/
+
+           /* let today = new Date().toLocaleDateString('fa-IR');
+            $("#date").val(today);*/
         </script>
     </body>
 </html>
