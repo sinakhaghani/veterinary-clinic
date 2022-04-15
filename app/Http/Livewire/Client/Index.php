@@ -8,6 +8,6 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.client.index');
+        return view('livewire.client.index')->layout('layouts.app', ['title' => 'کلینیک صبا | صفحه اصلی']);
     }
 }

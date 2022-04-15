@@ -56,9 +56,9 @@ class RegisterBirthCertificate extends Component
         'nameLive' => 'required|string|min:2|max:150',
         'dateBirth' => 'required|date',
         'typeLivestock' => 'required|min:1|string|max:50',
-        'sex' => 'max:191',
-        'color' => 'max:191',
-        'race' => 'max:191',
+        'sex' => 'max:191|string|nullable',
+        'color' => 'max:191|string|nullable',
+        'race' => 'max:191|string|nullable',
     ];
 
     /**

@@ -30,7 +30,7 @@
 
                 <li class="has-sub nav-item"><a href="#"><i class="fa fa-newspaper-o"></i><span data-i18n="" class="menu-title">دارو</span></a>
                     <ul class="menu-content">
-                        <li><i class="fa fa-long-arrow-left"></i><a href="view-user.html"  class="menu-item">ثبت نسخه</a>
+                        <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.register.prescription') }}"  class="menu-item">ثبت نسخه</a>
                         </li>
                         <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.register.medicines') }}" class="menu-item">ثبت دارو</a>
                         </li>

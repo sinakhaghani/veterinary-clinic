@@ -13,8 +13,8 @@
                                 <form wire:submit.prevent="login">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="@lang('messages.login.email_or_mobile')" required wire:model.debounce.1000ms="email">
-                                            @error('email') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            <input type="tel" class="form-control form-control-lg" id="inputEmail" placeholder="@lang('messages.login.email_or_mobile')" required wire:model.debounce.1000ms="mobile">
+                                            @error('mobile') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
 

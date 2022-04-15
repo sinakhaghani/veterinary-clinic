@@ -13,8 +13,8 @@ return[
       'tel' => '051-36583641',
       'mail' => 'saba_clinic@info',
       'mail_title' => 'آدرس ایمیل',
-      'address' => 'مشهد - خیابان آزادی',
-      'address_second' => 'آزادی 57 پلاک 3',
+      'address' => 'مشهد - بزرگراه پیامبر اعظم - نبش پیامبر اعظم 15',
+      'address_second' => 'آدرس کلینیک',
       'title_tel' => 'شماره تماس',
       'contact_title' => 'پیام شما',
       'input' => [
@@ -58,9 +58,18 @@ return[
       'login' => 'ورود',
       'reset_password' => 'رمز عبور خود را فراموش کردید؟',
       'recovery' => 'بازیابی',
-      'email_or_mobile' => 'ایمیل یا موبایل',
+      'email_or_mobile' => 'موبایل',
       'password' => 'رمز عبور',
     ],
+
+    'footer' => [
+        'our_colleagues' => [
+            'title' => 'برخی از همکاران ما',
+            'first' => 'دکتر حجت زمانیان',
+            'second' => 'مرداد شادلو',
+            'third' => 'مهدی کاظم نژادی',
+        ]
+    ]
 
 
 

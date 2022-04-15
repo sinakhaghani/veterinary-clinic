@@ -27,6 +27,8 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/register-birth-certificate', \App\Http\Livewire\Admin\RegisterBirthCertificate::class)->name('admin.register.certificate');
     Route::get('/panel-sms', \App\Http\Livewire\Admin\PanelSms::class)->name('admin.panel.sms');
     Route::get('/edit-profile', \App\Http\Livewire\Admin\EditProfile::class)->name('admin.edit.profile');
+    Route::get('/register-prescription', \App\Http\Livewire\Admin\RegisterPrescription::class)->name('admin.register.prescription');
+    Route::get('/ajax-certificate', [\App\Http\Controllers\AjaxController::class, 'certificate']);
 });
 
 

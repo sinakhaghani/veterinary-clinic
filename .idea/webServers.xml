@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f145a2c5-34a8-4d73-9af8-f6587f998512" name="sabaVeterinary" url="http://sabaveterinary.ir">
+        <fileTransfer rootFolder="/public_html/" host="sabaveterinary.ir" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

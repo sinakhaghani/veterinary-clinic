@@ -12,7 +12,7 @@ class RegisterMedicines extends Component
 
     protected $rules = [
         'title' => 'required|string|min:1',
-        'description' => 'string',
+        'description' => 'string|nullable',
     ];
     public function updated($name)
     {

@@ -7,12 +7,12 @@
                 <div class="col-xl-3 col-md-6 col-lg-3 ">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            برخی از همکاران ما
+                            @lang('messages.footer.our_colleagues.title')
                         </h3>
                         <ul class="links">
-                            <li><a href="#">دکتر حجت زمانیان</a></li>
-                            <li><a href="#">مرداد شاملو</a></li>
-                            <li><a href="#">مهدی کاظم نژادی</a></li>
+                            <li><a href="#">@lang('messages.footer.our_colleagues.first')</a></li>
+                            <li><a href="#">@lang('messages.footer.our_colleagues.second')</a></li>
+                            <li><a href="#">@lang('messages.footer.our_colleagues.third')</a></li>
                         </ul>
                     </div>
                 </div>

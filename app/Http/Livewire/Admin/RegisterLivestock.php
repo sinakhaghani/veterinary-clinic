@@ -17,7 +17,7 @@ class RegisterLivestock extends Component
     protected $rules = [
         'name' => 'required|string|min:3|max:150',
         'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
-        'address' => 'max:191',
+        'address' => 'max:191|string|nullable',
     ];
 
     public function mount()
