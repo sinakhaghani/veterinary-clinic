@@ -49,6 +49,11 @@
                 <li class="nav-item">
                     <a href="ticket.html"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">تیکت ها</span></a>
                 </li>
+                @if(auth()->user()['role'] == 1)
+                <li class="nav-item">
+                    <a href="{{ route('admin.management') }}"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title"> مدیریت ادمینها</span></a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>
