@@ -36,24 +36,20 @@
                         </li>
                     </ul>
                 </li>
-
+                @if(auth()->user()['role'] == 1)
                 <li class="has-sub nav-item"><a href="#"><i class="fa fa-cogs"></i><span data-i18n="" class="menu-title">تنظیمات</span></a>
                     <ul class="menu-content">
-                        <li><i class="fa fa-long-arrow-left"></i><a href="poster-Category.html"  class="menu-item">افزودن مدیر</a>
+                        <li><i class="fa fa-long-arrow-left"></i><a href="{{ route('admin.management') }}"  class="menu-item">افزودن مدیر</a>
                         </li>
                     </ul>
                 </li>
+                @endif
                 <li class="nav-item">
-                    <a href="{{route('admin.panel.sms')}}"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">پنل پیامک</span></a>
+                    <a href="{{route('admin.panel.sms')}}"><i class="fa fa-retweet"></i><span data-i18n="" class="menu-title">پنل پیامک</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="ticket.html"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title">تیکت ها</span></a>
                 </li>
-                @if(auth()->user()['role'] == 1)
-                <li class="nav-item">
-                    <a href="{{ route('admin.management') }}"><i class="fa fa-envelope-o"></i><span data-i18n="" class="menu-title"> مدیریت ادمینها</span></a>
-                </li>
-                @endif
             </ul>
         </div>
     </div>
