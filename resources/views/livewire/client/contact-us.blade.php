@@ -35,23 +35,27 @@
                 <h2 class="contact-title">@lang('messages.contact_us.contact_title')</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form-contact contact_form " action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                <form wire:submit.prevent="register" class="form-contact contact_form " id="">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100 style_rtl" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.message')'" placeholder=" @lang('messages.contact_us.input.message')"></textarea>
+                                <textarea wire:model.defer="message" class="form-control w-100 style_rtl"  cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.message')'" placeholder=" @lang('messages.contact_us.input.message')"></textarea>
+                                @error('message') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid style_rtl" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.name')'" placeholder="@lang('messages.contact_us.input.name')">
+                                <input wire:model.defer="mobile" class="form-control valid style_rtl" type="tel" maxlength="11" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.email')'" placeholder="@lang('messages.contact_us.input.mobile')">
+                                @error('mobile') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid style_rtl" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.email')'" placeholder="@lang('messages.contact_us.input.email')">
+                                <input wire:model.defer="name" class="form-control valid style_rtl" type="text" maxlength="100" onfocus="this.placeholder = ''" onblur="this.placeholder = '@lang('messages.contact_us.input.name')'" placeholder="@lang('messages.contact_us.input.name')">
+                                @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
+
                     </div>
                     <div class="form-group mt-3">
                         <button type="submit" class="button button-contactForm boxed-btn">@lang('messages.contact_us.input.send')</button>
@@ -84,3 +88,4 @@
         </div>
     </div>
 </section>
+<script src="{{ mix('/js/app.js') }}"></script>
