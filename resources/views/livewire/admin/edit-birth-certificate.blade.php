@@ -4,7 +4,7 @@
             <section id="calendar">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="content-header">ثبت شناسنامه</h2>
+                        <h2 class="content-header">ویرایش شناسنامه</h2>
                     </div>
                 </div>
                 <form wire:submit.prevent="register">
@@ -49,7 +49,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input value="" id="dateBirth" type="text" class="persianDatePicker form-control round addpo"
-                                                            placeholder="تاریخ تولد" style="margin-top: 10px" wire:model.defer="dateBirth">
+                                                       placeholder="تاریخ تولد" style="margin-top: 10px" wire:model.defer="dateBirth">
                                                 @error('dateBirth') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -86,90 +86,31 @@
                     </div>
                 </form>
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 class="content-header"> شناسنامه ها</h2>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card" style="background-color: #1E9FF2">
-                            <div class="card-content mt-1">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-xl mb-0" id="recent-orders">
-                                        <thead style="color: #FFFFFF;text-align: center">
-                                        <tr>
-                                            <th class="border-top-0">سریال</th>
-                                            <th class="border-top-0">نام دام</th>
-                                            <th class="border-top-0"> نام دامدار</th>
-                                            <th class="border-top-0">نوع دام</th>
-                                            <th class="border-top-0">تاریخ تولد</th>
-                                            <th class="border-top-0">نژاد</th>
-                                            <th class="border-top-0">جنسیت</th>
-                                            <th class="border-top-0">رنگ</th>
-                                            <th class="border-top-0">عملیات</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody style="background-color: #FFFFFF;text-align: center">
-                                        @php
-                                            $cnt=0;
-                                        @endphp
-                                        @foreach($listDateBirth as $index => $items)
-
-                                        <tr>
-                                            <td class="text-truncate"><h5>{{ $items['serial'] }}</h5></td>
-                                            <td class="text-truncate">{{ $items['name'] }}</td>
-                                            <td class="text-truncate">{{ $items['livestock']['name'] }}</td>
-                                            <td> {{ $items['type_livestock'] }} </td>
-                                            <td> {{ $items['date_birth'] }} </td>
-                                            <td class="text-truncate"> {{ $items['race'] }}</td>
-                                            <td class="text-truncate"> {{ $items['sex'] == "male" ? "نر" : "ماده" }} </td>
-
-                                            <td class="text-truncate"> {{ $items['color'] }}</td>
-                                            <td class="text-truncate">
-                                                <a href=" {{ route('admin.edit.certificate',$items['id']) }}" class="btn btn-sm btn-outline-success round mb-0">ویرایش</a>
-                                                <a class="btn btn-sm btn-outline-danger round mb-0">حذف</a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        {{ $listDateBirth->links() }}
-
-                    </div>
-
-                </div>
-
             </section>
         </div>
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+<script>
 
-        $(document).ready(function () {
+    $(document).ready(function () {
         $(".persianDatePicker").persianDatepicker({
-                    autoClose: true,
-                    initialValueType: 'gregorian',
-                    persianDigit: true,
-                    initialValue: true,
-                    observer: true,
-                    calendarType: 'persian',
-                    calendar:{
-                        persian: {
-                            locale:'en'
-                        },
-                        gregorian:{
-                            locale:'en'
-                        }
-                    },
-                    format: 'YYYY/MM/DD',
+            autoClose: true,
+            initialValueType: 'gregorian',
+            persianDigit: true,
+            initialValue: true,
+            observer: true,
+            calendarType: 'persian',
+            calendar:{
+                persian: {
+                    locale:'en'
+                },
+                gregorian:{
+                    locale:'en'
+                }
+            },
+            format: 'YYYY/MM/DD',
             onSelect: function(unix){
                 String.prototype.toEnglishDigit = function() {
                     let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
@@ -195,13 +136,13 @@
                     return newArray.join("/");
                 };
                 let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
-                @this.set('dateBirth', today, true);
+            @this.set('dateBirth', today, true);
 
             },
 
-                });
         });
-    </script>
+    });
+</script>
 
 <script src="{{ mix('/js/app.js') }}"></script>
 
