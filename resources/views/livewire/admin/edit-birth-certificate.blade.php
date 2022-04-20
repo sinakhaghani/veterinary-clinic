@@ -7,14 +7,15 @@
                         <h2 class="content-header">ویرایش شناسنامه</h2>
                     </div>
                 </div>
-                <form wire:submit.prevent="register">
+                <form wire:submit.prevent="update">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام دام" style="margin-top: 10px" wire:model.defer="nameLive">
+                                            <input type="text" id="nameLive" class="form-control round addpo"
+                                                   placeholder="نام دام" style="margin-top: 10px" wire:model.defer="nameLive">
                                             @error('nameLive') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -23,7 +24,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input class="form-control round" type="text" placeholder="جستجوی دامدار" wire:model="searchLivestock">
-                                            <select  class="select round mt-1" tabindex="1" style="width: 100%;" wire:model="owner">
+                                            <select  class="select round mt-1" id="owner" tabindex="1" style="width: 100%;" wire:model="owner">
                                                 <option value="">نام دامدار انتخاب کنید</option>
                                                 @foreach($livestock as $item)
                                                     <option value="{{ $item['id'] }}"> {{ $item['name'].' '.$item['mobile'] }}  </option>
@@ -53,7 +54,7 @@
                                                 @error('dateBirth') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
-                                                <input style="margin-top: 10px" type="text" id="roundText" class="form-control round addpo" placeholder="نژاد" wire:model.defer="race">
+                                                <input style="margin-top: 10px" type="text" id="race" class="form-control round addpo" placeholder="نژاد" wire:model.defer="race">
                                                 @error('race') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
@@ -95,11 +96,15 @@
 <script>
 
     $(document).ready(function () {
+        datePicker();
+    });
+
+    function datePicker(){
         $(".persianDatePicker").persianDatepicker({
             autoClose: true,
-            initialValueType: 'gregorian',
+            initialValueType: 'persian',
             persianDigit: true,
-            initialValue: true,
+            initialValue: false,
             observer: true,
             calendarType: 'persian',
             calendar:{
@@ -141,7 +146,8 @@
             },
 
         });
-    });
+    }
+
 </script>
 
 <script src="{{ mix('/js/app.js') }}"></script>

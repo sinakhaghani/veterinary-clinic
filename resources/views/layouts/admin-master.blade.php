@@ -39,6 +39,7 @@
         <livewire:admin.layouts.footer />
     </div>
 </div>
+<div class="back-modal" style=" background-color: black;opacity: 0.3; position: fixed;width: 100%;height: 100%; z-index: 500;display: none"></div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 <!-- BEGIN VENDOR JS-->

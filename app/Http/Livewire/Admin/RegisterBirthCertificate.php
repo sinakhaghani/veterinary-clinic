@@ -44,8 +44,17 @@ class RegisterBirthCertificate extends Component
      */
     public $searchLivestock;
     /**
+     * @var
+     */
+    public $delete;
+    /**
+     * @var
+     */
+    public $certificateId;
+    /**
      * @var string
      */
+
     protected $paginationTheme = 'bootstrap';
 
     /**
@@ -100,6 +109,16 @@ class RegisterBirthCertificate extends Component
             $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
         else
             $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+    }
+
+    public function setId($id)
+    {
+        $this->certificateId = $id;
+    }
+
+    public function delete()
+    {
+        dd($this->certificateId);
     }
 
     /**

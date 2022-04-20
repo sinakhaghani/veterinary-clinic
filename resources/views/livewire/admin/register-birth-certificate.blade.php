@@ -129,7 +129,7 @@
                                             <td class="text-truncate"> {{ $items['color'] }}</td>
                                             <td class="text-truncate">
                                                 <a href=" {{ route('admin.edit.certificate',$items['id']) }}" class="btn btn-sm btn-outline-success round mb-0">ویرایش</a>
-                                                <a class="btn btn-sm btn-outline-danger round mb-0">حذف</a>
+                                                <button wire:click="setId({{ $items['id'] }})" class="btn btn-sm btn-outline-danger round mb-0 delete-button" data-toggle="modal" >حذف</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -140,10 +140,34 @@
                             </div>
                         </div>
                         {{ $listDateBirth->links() }}
+                    </div>
+                </div>
 
+
+                <!-- Modal -->
+                    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog"  role="document">
+                            <div class="modal-content"  style="z-index: 1500!important;">
+                                <div class="modal-header" style="z-index: 1500!important;">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" style="z-index: 1500!important;">
+                                    ...
+                                </div>
+                                <div class="modal-footer" style="z-index: 1500!important;">
+                                    <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+                <!-- Modal -->
+
+
 
             </section>
         </div>
@@ -154,53 +178,75 @@
     <script>
 
         $(document).ready(function () {
-        $(".persianDatePicker").persianDatepicker({
-                    autoClose: true,
-                    initialValueType: 'gregorian',
-                    persianDigit: true,
-                    initialValue: true,
-                    observer: true,
-                    calendarType: 'persian',
-                    calendar:{
-                        persian: {
-                            locale:'en'
-                        },
-                        gregorian:{
-                            locale:'en'
-                        }
+            checkDelete();
+            datePicker();
+        });
+
+        function checkDelete(){
+            $(".delete-button").click(function(){
+                $('.modal').addClass('fade');
+                $('.modal').addClass('show');
+                $('.modal').css("padding-top", "200px");
+                $('.modal').css("display", "block");
+                $('.modal').css("padding-left", "17px");
+                $('.back-modal').css("display", "block");
+            });
+            $(".close-modal").click(function(){
+                $('.modal').removeClass('fade');
+                $('.modal').removeClass('show');
+                $('.modal').css("display", "none");
+
+            });
+        }
+
+        function datePicker(){
+            $(".persianDatePicker").persianDatepicker({
+                autoClose: true,
+                initialValueType: 'gregorian',
+                persianDigit: true,
+                initialValue: true,
+                observer: true,
+                calendarType: 'persian',
+                calendar:{
+                    persian: {
+                        locale:'en'
                     },
-                    format: 'YYYY/MM/DD',
-            onSelect: function(unix){
-                String.prototype.toEnglishDigit = function() {
-                    let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-                    let replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                    let replaceString = this;
-                    let regex;
-                    for (let i = 0; i < find.length; i++) {
-                        regex = new RegExp(find[i], "g");
-                        replaceString = replaceString.replace(regex, replace[i]);
-                    } return replaceString;
-                };
-                String.prototype.changeFormatDate = function() {
-                    let newArray = [];
-                    let array = this.split("/");
-                    array.forEach(function (item,index){
-                        if (item.length == 1){
-                            return newArray[index] = '0'+item;
-                        }
-                        else {
-                            return newArray[index] = item;
-                        }
-                    });
-                    return newArray.join("/");
-                };
-                let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
+                    gregorian:{
+                        locale:'en'
+                    }
+                },
+                format: 'YYYY/MM/DD',
+                onSelect: function(unix){
+                    String.prototype.toEnglishDigit = function() {
+                        let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                        let replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                        let replaceString = this;
+                        let regex;
+                        for (let i = 0; i < find.length; i++) {
+                            regex = new RegExp(find[i], "g");
+                            replaceString = replaceString.replace(regex, replace[i]);
+                        } return replaceString;
+                    };
+                    String.prototype.changeFormatDate = function() {
+                        let newArray = [];
+                        let array = this.split("/");
+                        array.forEach(function (item,index){
+                            if (item.length == 1){
+                                return newArray[index] = '0'+item;
+                            }
+                            else {
+                                return newArray[index] = item;
+                            }
+                        });
+                        return newArray.join("/");
+                    };
+                    let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
                 @this.set('dateBirth', today, true);
 
-            },
+                },
 
-                });
-        });
+            });
+        }
     </script>
 
 <script src="{{ mix('/js/app.js') }}"></script>
