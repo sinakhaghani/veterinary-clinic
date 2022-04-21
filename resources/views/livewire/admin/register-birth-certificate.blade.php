@@ -147,19 +147,19 @@
                 <!-- Modal -->
                     <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog"  role="document">
-                            <div class="modal-content"  style="z-index: 1500!important;">
-                                <div class="modal-header" style="z-index: 1500!important;">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <div class="modal-content"  >
+                                <div class="modal-header" >
+                                    <h5 class="modal-title" id="exampleModalLabel">آیا از حذف اطمینان دارید؟</h5>
                                     <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body" style="z-index: 1500!important;">
+                                {{--<div class="modal-body" style="z-index: 1500!important;">
                                     ...
-                                </div>
-                                <div class="modal-footer" style="z-index: 1500!important;">
-                                    <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>--}}
+                                <div class="modal-footer" >
+                                    <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">بستن</button>
+                                    <button wire:click.prevent="delete()" type="button" class="btn btn-danger">حذف کن</button>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
         </div>
     </div>
 </div>
-
+<div class="back-modal" style=" background-color: black;opacity: 0.3; position: absolute;width: 100%;height: 100%; z-index: 500;display: none;bottom: 0px;top: 0px"></div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
 
@@ -190,12 +190,14 @@
                 $('.modal').css("display", "block");
                 $('.modal').css("padding-left", "17px");
                 $('.back-modal').css("display", "block");
+               // window.scrollTo(0, 0);
+                $("html, body").animate({ scrollTop: 0 }, "slow");
             });
             $(".close-modal").click(function(){
                 $('.modal').removeClass('fade');
                 $('.modal').removeClass('show');
                 $('.modal').css("display", "none");
-
+                $('.back-modal').css("display", "none");
             });
         }
 

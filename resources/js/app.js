@@ -50,7 +50,6 @@ window.addEventListener('livewire:load', () => {
             showConfirmButton: false,
             timer: 1500
         });
-        console.log(type, message);
     })
 
     Livewire.on('registerButton', (type, message) => {
@@ -59,6 +58,19 @@ window.addEventListener('livewire:load', () => {
             title: message,
             text: 'Something went wrong',
         })
-        console.log(type, message);
+    })
+
+    Livewire.on('registerModal', (type, message) => {
+        Swal.fire({
+            icon: type,
+            title: message,
+            text: '',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        $('.modal').removeClass('fade');
+        $('.modal').removeClass('show');
+        $('.modal').css("display", "none");
+        $('.back-modal').css("display", "none");
     })
 })

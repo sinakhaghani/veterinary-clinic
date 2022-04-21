@@ -113,12 +113,18 @@ class RegisterBirthCertificate extends Component
 
     public function setId($id)
     {
-        $this->certificateId = $id;
+        $this->certificateId = BirthCertificate::find($id);
     }
 
     public function delete()
     {
-        dd($this->certificateId);
+        $delete = $this->certificateId->delete();
+        if ($delete)
+        {
+            $this->emit('registerModal', 'success', "بروزرسانی با موفقیت انجام شد");
+        }
+        else
+            $this->emit('registerModal', 'error', "متاسفم بروزرسانی انجام نشد، دوباره امتحان کنید");
     }
 
     /**

@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/PersianDatePicker/persian-datepicker-main.min.css"/>
     <link rel="stylesheet"  href="/admin/js/docsupport/prism.css">
     <link rel="stylesheet"  href="/admin/js/docsupport/chosen.css">
+
 </head>
 <body data-col="2-columns" class=" 2-columns ">
 
@@ -39,7 +40,6 @@
         <livewire:admin.layouts.footer />
     </div>
 </div>
-<div class="back-modal" style=" background-color: black;opacity: 0.3; position: fixed;width: 100%;height: 100%; z-index: 500;display: none"></div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 <!-- BEGIN VENDOR JS-->
