@@ -5572,7 +5572,7 @@ window.addEventListener('livewire:load', function () {
       text: 'Something went wrong'
     });
   });
-  Livewire.on('registerModal', function (type, message) {
+  Livewire.on('deleteModal', function (type, message) {
     Swal.fire({
       icon: type,
       title: message,

@@ -60,7 +60,7 @@ window.addEventListener('livewire:load', () => {
         })
     })
 
-    Livewire.on('registerModal', (type, message) => {
+    Livewire.on('deleteModal', (type, message) => {
         Swal.fire({
             icon: type,
             title: message,

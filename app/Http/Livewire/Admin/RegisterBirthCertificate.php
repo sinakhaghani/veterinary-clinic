@@ -121,10 +121,10 @@ class RegisterBirthCertificate extends Component
         $delete = $this->certificateId->delete();
         if ($delete)
         {
-            $this->emit('registerModal', 'success', "بروزرسانی با موفقیت انجام شد");
+            $this->emit('deleteModal', 'success', "بروزرسانی با موفقیت انجام شد");
         }
         else
-            $this->emit('registerModal', 'error', "متاسفم بروزرسانی انجام نشد، دوباره امتحان کنید");
+            $this->emit('deleteModal', 'error', "متاسفم بروزرسانی انجام نشد، دوباره امتحان کنید");
     }
 
     /**
@@ -134,7 +134,7 @@ class RegisterBirthCertificate extends Component
     {
         return view('livewire.admin.register-birth-certificate', [
             'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
-            'listDateBirth' => BirthCertificate::with('livestock')->paginate(10),
+            'listDateBirth' => BirthCertificate::with('livestock')->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }
