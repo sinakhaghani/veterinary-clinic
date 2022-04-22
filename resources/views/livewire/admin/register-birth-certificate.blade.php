@@ -116,11 +116,10 @@
                                             $cnt=0;
                                         @endphp
                                         @foreach($listDateBirth as $index => $items)
-
                                         <tr>
                                             <td class="text-truncate"><h5>{{ $items['serial'] }}</h5></td>
                                             <td class="text-truncate">{{ $items['name'] }}</td>
-                                            <td class="text-truncate">{{ $items['livestock']['name'] }}</td>
+                                            <td class="text-truncate">{{ (!is_null($items['livestock'])) ? $items['livestock']['name'] : '' }}</td>
                                             <td> {{ $items['type_livestock'] }} </td>
                                             <td> {{ $items['date_birth'] }} </td>
                                             <td class="text-truncate"> {{ $items['race'] }}</td>
