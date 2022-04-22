@@ -11,9 +11,8 @@ class BirthCertificate extends Model
 
     protected $table = 'birth_certificates';
     protected $fillable = ['serial', 'name', 'owner', 'type_livestock', 'race', 'date_birth', 'sex', 'color'];
-    protected $guarded = ['id'];
 
-    public function livestock()
+    public function livestock(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Livestock::class, 'owner');
     }

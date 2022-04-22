@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
 use App\Models\Medicine;
-use App\Models\Pescription;
+use App\Models\Prescription;
 use Livewire\Component;
 
 class RegisterPrescription extends Component
@@ -25,6 +25,10 @@ class RegisterPrescription extends Component
      * @var
      */
     public $medicine;
+    /**
+     * @var
+     */
+    public $certificateID;
 
     /**
      * @var string[]
@@ -32,7 +36,6 @@ class RegisterPrescription extends Component
     protected $rules = [
         'certificate' => 'required|numeric|min:1|exists:birth_certificates,id',
         'medicine' => 'required|array|min:1',
-        //'medicine.*' => 'required|numeric|min:1|exists:medicines,id',
         'description' => 'string|nullable',
     ];
 
@@ -51,7 +54,7 @@ class RegisterPrescription extends Component
         $medicine = Medicine::whereIn('id', $this->medicine)->get('title')->toArray();
         $medicine = collect($medicine)->flatten()->toArray();
         $medicine = implode(',', $medicine);
-        $register = Pescription::create([
+        $register = Prescription::create([
             'certificate' => $this->certificate,
             'medicine' => $medicine,
             'description' => $this->description,
@@ -63,12 +66,34 @@ class RegisterPrescription extends Component
             $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
     }
 
+    /**
+     * @param $id
+     */
+    public function setId($id)
+    {
+        $this->certificateID = Prescription::find($id);
+    }
+
+    /**
+     *
+     */
+    public function delete()
+    {
+        $delete = $this->certificateID->delete();
+        if ($delete)
+        {
+            $this->emit('deleteModal', 'success', "حذف با موفقیت انجام شد");
+        }
+        else
+            $this->emit('deleteModal', 'error', "متاسفم حذف انجام نشد، دوباره امتحان کنید");
+    }
 
     public function render()
     {
         return view('livewire.admin.register-prescription',[
             'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
             'medicines' => Medicine::all(),
+            'listPrescription' => Prescription::with('birthCertificate')->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePescriptionsTable extends Migration
+class CreatePrescriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreatePescriptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pescriptions', function (Blueprint $table) {
+        Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('certificate');
+            $table->integer('certificate');
+            $table->foreign('certificate')->references('id')->on('birth_certificates');
             $table->string('medicine');
             $table->string('description')->nullable();
             $table->timestamps();
