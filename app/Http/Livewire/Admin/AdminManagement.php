@@ -28,6 +28,10 @@ class AdminManagement extends Component
      * @var
      */
     public $password_confirmation;
+    /**
+     * @var
+     */
+    public $userID;
 
     /**
      * @var string[]
@@ -39,21 +43,30 @@ class AdminManagement extends Component
         'password' => 'required|min:8|max:100|confirmed',
     ];
 
+    /**
+     * @var string[]
+     */
     protected $validationAttributes = [
 
         'name' => 'نام و نام خانوادگی'
 
     ];
 
+    /**
+     * @param $name
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function updated($name)
     {
         $this->validateOnly($name);
     }
 
+    /**
+     *
+     */
     public function register()
     {
         $this->validate();
-        //dd($this->mobile,$this);
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -69,10 +82,34 @@ class AdminManagement extends Component
     }
 
     /**
+     * @param $id
+     */
+    public function setId($id)
+    {
+        $this->userID = User::find($id);
+    }
+
+    /**
+     *
+     */
+    public function delete()
+    {
+        $delete = $this->userID->delete();
+        if ($delete)
+        {
+            $this->emit('deleteModal', 'success', "حذف با موفقیت انجام شد");
+        }
+        else
+            $this->emit('deleteModal', 'error', "متاسفم حذف انجام نشد، دوباره امتحان کنید");
+    }
+
+    /**
      * @return mixed
      */
     public function render()
     {
-        return view('livewire.admin.admin-management')->layout('layouts.admin-master');
+        return view('livewire.admin.admin-management',[
+            'listAdmins' => User::latest()->paginate(10)
+        ])->layout('layouts.admin-master');
     }
 }

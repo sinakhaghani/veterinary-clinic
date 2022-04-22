@@ -23,7 +23,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/main', \App\Http\Livewire\Admin\Index::class)->name('admin.main');
     Route::get('/register-livestock', \App\Http\Livewire\Admin\RegisterLivestock::class)->name('admin.register.livestock');
     Route::get('/edit-livestock/{livestock}', \App\Http\Livewire\Admin\EditLivestock::class)->name('admin.edit.livestock');
-    Route::get('/register-type-pet', \App\Http\Livewire\Admin\TypeLivestock::class)->name('admin.register.type.livestock');
+   // Route::get('/register-type-pet', \App\Http\Livewire\Admin\TypeLivestock::class)->name('admin.register.type.livestock');
     Route::get('/register-medicines', \App\Http\Livewire\Admin\RegisterMedicines::class)->name('admin.register.medicines');
     Route::get('/register-birth-certificate', \App\Http\Livewire\Admin\RegisterBirthCertificate::class)->name('admin.register.certificate');
     Route::get('/edit-birth-certificate/{birthCertificate}', \App\Http\Livewire\Admin\EditBirthCertificate::class)->name('admin.edit.certificate');
@@ -32,6 +32,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/register-prescription', \App\Http\Livewire\Admin\RegisterPrescription::class)->name('admin.register.prescription');
     Route::get('/ajax-certificate', [\App\Http\Controllers\AjaxController::class, 'certificate']);
     Route::get('/admin-management', \App\Http\Livewire\Admin\AdminManagement::class)->name('admin.management');
+    Route::get('/edit-admin/{admin}', \App\Http\Livewire\Admin\EditAdmin::class)->name('admin.edit');
 });
 
 

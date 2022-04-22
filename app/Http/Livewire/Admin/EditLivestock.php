@@ -61,7 +61,7 @@ class EditLivestock extends Component
     public function update()
     {
        $this->validate();
-       $update = Livestock::where('id', $this->livestock['id'])->update([
+       $update = $this->livestock->update([
             'name' => $this->name,
             'mobile' => $this->mobile,
             'address' => $this->address,

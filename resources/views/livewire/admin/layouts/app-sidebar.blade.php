@@ -20,10 +20,10 @@
                             <i class="fa fa-long-arrow-left"></i>
                             <a href="{{ route('admin.register.certificate') }}" class="menu-item">ثبت شناسنامه</a>
                         </li>
-                        <li>
+                       {{-- <li>
                             <i class="fa fa-long-arrow-left"></i>
                             <a href="{{ route('admin.register.type.livestock') }}" class="menu-item">ثبت نوع دام</a>
-                        </li>
+                        </li>--}}
 
                     </ul>
                 </li>

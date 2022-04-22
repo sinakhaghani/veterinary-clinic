@@ -31,10 +31,6 @@ class RegisterLivestock extends Component
      * @var
      */
     public $option;
-    /**
-     * @var
-     */
-    public $livestockId;
 
     /**
      * @var string[]
@@ -95,10 +91,10 @@ class RegisterLivestock extends Component
         $delete = $this->livestockId->delete();
         if ($delete)
         {
-            $this->emit('deleteModal', 'success', "بروزرسانی با موفقیت انجام شد");
+            $this->emit('deleteModal', 'success', "حذف با موفقیت انجام شد");
         }
         else
-            $this->emit('deleteModal', 'error', "متاسفم بروزرسانی انجام نشد، دوباره امتحان کنید");
+            $this->emit('deleteModal', 'error', "متاسفم حذف انجام نشد، دوباره امتحان کنید");
     }
 
     /**
