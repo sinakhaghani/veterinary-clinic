@@ -57,7 +57,7 @@
 <script src="/admin/vendors/js/pace/pace.min.js"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
-{{--<script src="/admin/vendors/js/chartist.min.js"></script>--}}
+<script src="/admin/vendors/js/chartist.min.js"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN CONVEX JS-->
 <script src="/admin/js/app-sidebar.js"></script>
@@ -65,7 +65,7 @@
 <script src="/admin/js/customizer.js"></script>
 <!-- END CONVEX JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-{{--<script src="/admin/js/dashboard-ecommerce.js"></script>--}}
+<script src="/admin/js/dashboard-ecommerce.js"></script>
 <!-- END PAGE LEVEL JS-->
 {{--<script src="/admin/js/docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>--}}
 {{--<script src="/admin/js/docsupport/chosen.jquery.js" type="text/javascript"></script>

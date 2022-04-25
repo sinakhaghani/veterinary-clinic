@@ -7,7 +7,7 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-                <li class=" nav-item"><a href="index.html"><i class="icon-home"></i><span data-i18n="" class="menu-title">داشبورد</span></a>
+                <li class=" nav-item"><a href="/admin/main"><i class="icon-home"></i><span data-i18n="" class="menu-title">داشبورد</span></a>
                 </li>
                 <li class="has-sub nav-item"><a href="#"><i class="fa fa-users" aria-hidden="true"></i>
                         <span data-i18n="" class="menu-title">دام</span></a>

@@ -9,8 +9,8 @@
                                 <div class="card-block pt-2 pb-0">
                                     <div class="media">
                                         <div class="media-body white text-left">
-                                            <h4 class="font-medium-5 card-title mb-0">530 پکیج</h4>
-                                            <span class="grey darken-1">تعداد کل پکیج ها</span>
+                                            <h4 class="font-medium-5 card-title mb-0">{{ $numberPrescription }}</h4>
+                                            <span class="grey darken-1">تعداد کل نسخه ها</span>
                                         </div>
                                         <div class="media-right text-right">
                                             <i class="fa fa-shopping-basket font-large-1 primary"></i>
@@ -28,8 +28,8 @@
                                 <div class="card-block pt-2 pb-0">
                                     <div class="media">
                                         <div class="media-body white text-left">
-                                            <h4 class="font-medium-5 card-title mb-0">60.000.000 تومان</h4>
-                                            <span class="grey darken-1">در آمد کل سایت</span>
+                                            <h4 class="font-medium-5 card-title mb-0">{{$numberCertificate}}</h4>
+                                            <span class="grey darken-1">تعداد شناسنامه ها</span>
                                         </div>
                                         <div class="media-right text-right">
                                             <i class="icon-wallet font-large-1 warning"></i>
@@ -48,8 +48,8 @@
                                 <div class="card-block pt-2 pb-0">
                                     <div class="media">
                                         <div class="media-body white text-left">
-                                            <h4 class="font-medium-5 card-title mb-0">1000 رستوران</h4>
-                                            <span class="grey darken-1">تعداد کل رستوران ها</span>
+                                            <h4 class="font-medium-5 card-title mb-0">{{ $numberLivestock }}</h4>
+                                            <span class="grey darken-1">تعداد کل دامدارها</span>
                                         </div>
                                         <div class="media-right text-right">
                                             <i class="fa fa-user-circle-o font-large-1 success"></i>
@@ -63,14 +63,13 @@
                     </div>
                 </div>
                 <!--Statistics cards Ends-->
-
                 <!--Line with Area Chart 1 Starts-->
                 <div class="row">
                     <div class="col-12 col-md-8" id="recent-sales">
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title-wrap bar-primary">
-                                    <h4 class="card-title">خرید های جدید
+                                    <h4 class="card-title">شناسنامه های جدید
                                     </h4>
                                 </div>
                                 <a class="heading-elements-toggle">
@@ -82,91 +81,35 @@
                                     <table class="table table-hover table-xl mb-0" id="recent-orders">
                                         <thead>
                                         <tr>
-                                            <th class="border-top-0">پکیج</th>
-                                            <th class="border-top-0">مشتری
+                                            <th class="border-top-0">نام</th>
+                                            <th class="border-top-0">مالک
                                             </th>
-                                            <th class="border-top-0">اطلاعات</th>
-                                            <th class="border-top-0">تاریخ</th>
-                                            <th class="border-top-0">مبلغ خرید</th>
+                                            <th class="border-top-0">نوع دام</th>
+                                            <th class="border-top-0">تاریخ تولد</th>
+                                            <th class="border-top-0">جنسیت</th>
+                                            <th class="border-top-0">عملیات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($certificateLatest as $certificate)
                                         <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
+                                            <td class="text-truncate">{{ $certificate['name'] }}</td>
+                                            <td class="text-truncate">{{ $certificate['livestock']['name'] }}</td>
                                             <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
+                                                {{ $certificate['type_livestock'] }}
                                             </td>
                                             <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr> <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr> <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">یک ماهه</td>
-                                            <td class="text-truncate">رضای دلیری</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</button>
-                                            </td>
-                                            <td>
-                                                1399/05/09
-                                            </td>
-                                            <td class="text-truncate"> 1200.00 تومان</td>
-                                        </tr>
+                                                {{ $certificate['date_birth'] }}
 
+                                            </td>
+                                            <td>
+                                                {{ ($certificate['sex'] == 'male') ? 'نر' : 'ماده' }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.edit.certificate',$certificate['id']) }}" class="btn btn-sm btn-outline-danger round mb-0" type="button">مشاهده</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -177,7 +120,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title-wrap bar-primary">
-                                    <h4 class="card-title">جدید ترین ثبت نامی ها
+                                    <h4 class="card-title">جدید ترین دامدارها
                                     </h4>
                                 </div>
                                 <a class="heading-elements-toggle">
@@ -191,67 +134,20 @@
                                         <tr>
                                             <th class="border-top-0">نام
                                             </th>
-                                            <th class="border-top-0">تاریخ </th>
-                                            <th class="border-top-0">کد کاربری</th>
+                                            <th class="border-top-0">تاریخ ثبت نام</th>
+                                            <th class="border-top-0"> موبایل</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="text-truncate">حسین نوری </td>
-                                            <td class="text-truncate"> 1399/05/09</td>
-
-                                            <td class="text-truncate"> 123456 </td>
-
-                                        </tr>
+                                        @foreach($livestockLatest as $livestock)
+                                            <tr>
+                                                <td class="text-truncate">{{ $livestock['name'] }}</td>
+                                                <td class="text-truncate">{{ $livestock['mobile'] }}</td>
+                                                <td>
+                                                    {{ $livestock['date'] }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                     </table>
                                 </div>
