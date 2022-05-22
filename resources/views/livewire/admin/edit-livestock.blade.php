@@ -13,12 +13,19 @@
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="text" id="" class="form-control round addpo" placeholder="نام و نام خانوادگی" style="margin-top: 10px" required wire:model.debounce.1000ms="name">
+                                        <div class="col-md-6">
+                                            <input type="text" id="" class="form-control round addpo"
+                                                   placeholder="نام و نام خانوادگی" style="margin-top: 10px" required wire:model.debounce.1000ms="name">
                                             @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control round addpo"
+                                                   placeholder="نوع دام" style="margin-top: 10px" required wire:model.debounce.1000ms="typeLivestock">
+                                            @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -33,6 +40,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">

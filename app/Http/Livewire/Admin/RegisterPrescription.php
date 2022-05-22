@@ -9,6 +9,7 @@ use Livewire\Component;
 
 class RegisterPrescription extends Component
 {
+    protected $paginationTheme = 'bootstrap';
     /**
      * @var
      */

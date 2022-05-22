@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class RegisterMedicines extends Component
 {
+    protected $paginationTheme = 'bootstrap';
     /**
      * @var
      */

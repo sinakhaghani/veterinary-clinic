@@ -12,7 +12,7 @@ class Livestock extends Model
     use HasFactory;
 
     protected $table = 'livestock';
-    protected $fillable = ['name', 'mobile', 'address', 'code_verify'];
+    protected $fillable = ['name', 'mobile', 'type_livestock', 'address', 'code_verify'];
     protected $appends = ['date'];
 
     protected $casts = [

@@ -11,6 +11,7 @@ class RegisterLivestock extends Component
 {
     use WithPagination;
 
+    protected $paginationTheme = 'bootstrap';
     /**
      * @var
      */
@@ -37,6 +38,7 @@ class RegisterLivestock extends Component
      */
     protected $rules = [
         'name' => 'required|string|min:3|max:150',
+        'typeLivestock' => 'nullable|string|max:150',
         'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
         'address' => 'max:191|string|nullable',
     ];
@@ -67,6 +69,7 @@ class RegisterLivestock extends Component
         $register = Livestock::create([
             'name' => $this->name,
             'mobile' => $this->mobile,
+            'type_livestock' => $this->typeLivestock,
             'address' => $this->address,
         ]);
         if ($register) {

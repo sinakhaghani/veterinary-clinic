@@ -15,6 +15,7 @@ class Index extends Component
     public $numberLivestock;
     public $numberCertificate;
     public $numberPrescription;
+    protected $paginationTheme = 'bootstrap';
 
     public function mount()
     {

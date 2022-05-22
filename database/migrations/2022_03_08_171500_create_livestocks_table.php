@@ -17,6 +17,7 @@ class CreateLivestocksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('mobile');
+            $table->string('type_livestock')->nullable();
             $table->string('address')->nullable();
             $table->string('code_verify')->nullable();
             $table->string('expire_time')->nullable();

@@ -13,26 +13,33 @@
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="text" id="roundText" class="form-control round addpo" placeholder="نام و نام خانوادگی" style="margin-top: 10px" required wire:model.debounce.1000ms="name">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control round addpo" placeholder="نام و نام خانوادگی" style="margin-top: 10px" required wire:model.debounce.1000ms="name">
                                             @error('name') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control round addpo" placeholder="نوع دام" style="margin-top: 10px" wire:model.debounce.1000ms="typeLivestock">
+                                            @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input style="margin-top: 10px" type="tel" id="roundText" class="form-control round addpo" maxlength="11" minlength="11" placeholder="شماره موبایل" required wire:model.debounce.1000ms="mobile">
+                                                <input style="margin-top: 10px" type="tel" class="form-control round addpo" maxlength="11" minlength="11" placeholder="شماره موبایل" required wire:model.debounce.1000ms="mobile">
                                                 @error('mobile') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" id="roundText" class="form-control round addpo" placeholder="آدرس" style="margin-top: 10px" wire:model.debounce.1000ms="address">
+                                                <input type="text" class="form-control round addpo" placeholder="آدرس" style="margin-top: 10px" wire:model.debounce.1000ms="address">
                                                 @error('address') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -65,6 +72,7 @@
                                             <th class="border-top-0">ردیف</th>
                                             <th class="border-top-0">نام</th>
                                             <th class="border-top-0">موبایل</th>
+                                            <th class="border-top-0">نوع دام</th>
                                             <th class="border-top-0">آدرس</th>
                                             <th class="border-top-0">عملیات</th>
                                         </tr>
@@ -79,6 +87,7 @@
                                                 <td> {{ $cnt++ }} </td>
                                                 <td class="text-truncate"><h5>{{ $items['name'] }}</h5></td>
                                                 <td class="text-truncate">{{ $items['mobile'] }}</td>
+                                                <td class="text-truncate">{{ $items['type_livestock'] }}</td>
                                                 <td class="text-truncate">{{ $items['address'] }}</td>
                                                 <td class="text-truncate">
                                                     <a href=" {{ route('admin.edit.livestock',$items['id']) }}" class="btn btn-sm btn-outline-success round mb-0">ویرایش</a>
