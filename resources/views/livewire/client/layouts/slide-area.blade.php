@@ -8,7 +8,7 @@
                     <div class="slider_text">
                         <h3>@lang('messages.slide-area.we_care') <br> <span>@lang('messages.slide-area.your_pets')</span></h3>
                         <p class="col-md-12">@lang('messages.slide-area.main_text_first') <br> <span class="font-weight-bold">@lang('messages.slide-area.main_text_second')</span> </p>
-                        <a href="contact.html" class="boxed-btn4" style="margin-left: 6rem;">@lang('messages.slide-area.contact_us')</a>
+                        <a href="{{ route('client.contact_us') }}" class="boxed-btn4" style="margin-left: 6rem;">@lang('messages.slide-area.contact_us')</a>
                     </div>
                 </div>
             </div>
