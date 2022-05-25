@@ -11,6 +11,7 @@
                         </h3>
                         <ul class="links">
                             <li><a href="#">@lang('messages.footer.our_colleagues.first')</a></li>
+                            <li><a href="#">@lang('messages.footer.our_colleagues.fifth')</a></li>
                             <li><a href="#">@lang('messages.footer.our_colleagues.second')</a></li>
                             <li><a href="#">@lang('messages.footer.our_colleagues.third')</a></li>
                         </ul>

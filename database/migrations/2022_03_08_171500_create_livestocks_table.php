@@ -18,6 +18,8 @@ class CreateLivestocksTable extends Migration
             $table->string('name');
             $table->string('mobile');
             $table->string('type_livestock')->nullable();
+            $table->enum('gender', ['f', 'm'])->nullable();
+            $table->string('amount')->nullable();
             $table->string('address')->nullable();
             $table->string('code_verify')->nullable();
             $table->string('expire_time')->nullable();

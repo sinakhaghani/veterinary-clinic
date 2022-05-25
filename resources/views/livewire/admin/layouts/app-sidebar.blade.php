@@ -14,7 +14,7 @@
                     <ul class="menu-content">
                         <li>
                             <i class="fa fa-long-arrow-left"></i>
-                            <a href="{{ route('admin.register.livestock') }}"  class="menu-item">ثبت نام دامدار</a>
+                            <a href="{{ route('admin.register.livestock') }}"  class="menu-item">ثبت نام مراجعه کننده</a>
                         </li>
                         <li>
                             <i class="fa fa-long-arrow-left"></i>

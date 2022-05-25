@@ -159,6 +159,7 @@ return [
         'typeLivestock'              => 'نوع دام',
         'dateBirth'              => 'تاریخ تولد',
         'mobile'              => 'تلفن همراه',
+        'gender'              => 'جنسیت',
     ],
 
 ];

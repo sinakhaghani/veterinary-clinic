@@ -4,7 +4,7 @@
             <section id="calendar">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="content-header">ثبت نام دامدار</h2>
+                        <h2 class="content-header">ثبت نام مراجعه کننده</h2>
                     </div>
                 </div>
                 <form wire:submit.prevent="register">
@@ -43,6 +43,26 @@
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <select  class="form-control round mt-1" style="width: 100%;" wire:model.debounce.1000ms="gender">
+                                                    <option value="">جنسیت</option>
+                                                    <option value="f">مرد</option>
+                                                    <option value="m">زن</option>
+                                                </select>
+                                                @error('gender') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control round addpo"
+                                                       placeholder="مبلغ" maxlength="30" style="margin-top: 10px" wire:model.debounce.1000ms="amount">
+                                                @error('amount') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <div class="row">
                                             <div class="col-md-12 col-sm-12">
                                                 <input type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo" value="ثبت کن">
                                             </div>
@@ -57,7 +77,25 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="content-header">لیست دامدارها</h2>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h6 class="content-header" style="font-size: 18px">لیست مراجعه کننده ها</h6>
+                            </div>
+                            <div class="col-lg-4">
+                                <form action="">
+                                    <div class="position-relative has-icon-left">
+                                        <input wire:model="searchList" type="text"
+                                               class="form-control form-control round" style="width:100%;margin-top: 15px" placeholder="جستجو با نام و موبایل">
+
+                                        <div class="form-control-position">
+                                            <i class="ft-search info"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -73,13 +111,15 @@
                                             <th class="border-top-0">نام</th>
                                             <th class="border-top-0">موبایل</th>
                                             <th class="border-top-0">نوع دام</th>
+                                            <th class="border-top-0">جنسیت</th>
+                                            <th class="border-top-0">مبلغ</th>
                                             <th class="border-top-0">آدرس</th>
                                             <th class="border-top-0">عملیات</th>
                                         </tr>
                                         </thead>
                                         <tbody style="background-color: #FFFFFF;text-align: center">
                                         @php
-                                            $cnt=1;
+                                            $cnt = collect($listLivestock)->toArray()['current_page'] * 10 - 9;
                                         @endphp
                                         @foreach($listLivestock as $index => $items)
 
@@ -88,6 +128,8 @@
                                                 <td class="text-truncate"><h5>{{ $items['name'] }}</h5></td>
                                                 <td class="text-truncate">{{ $items['mobile'] }}</td>
                                                 <td class="text-truncate">{{ $items['type_livestock'] }}</td>
+                                                <td class="text-truncate">{{ ($items['gender'] == 'm') ? "مرد" : "زن" }}</td>
+                                                <td class="text-truncate">{{ $items['amount'] }}</td>
                                                 <td class="text-truncate">{{ $items['address'] }}</td>
                                                 <td class="text-truncate">
                                                     <a href=" {{ route('admin.edit.livestock',$items['id']) }}" class="btn btn-sm btn-outline-success round mb-0">ویرایش</a>

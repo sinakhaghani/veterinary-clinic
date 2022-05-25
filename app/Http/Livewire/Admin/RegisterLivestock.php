@@ -27,11 +27,23 @@ class RegisterLivestock extends Component
     /**
      * @var
      */
+    public $gender;
+    /**
+     * @var
+     */
+    public $amount;
+    /**
+     * @var
+     */
     public $address;
     /**
      * @var
      */
     public $option;
+    /**
+     * @var
+     */
+    public $searchList;
 
     /**
      * @var string[]
@@ -40,6 +52,8 @@ class RegisterLivestock extends Component
         'name' => 'required|string|min:3|max:150',
         'typeLivestock' => 'nullable|string|max:150',
         'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
+        'amount' => 'nullable|numeric',
+        'gender' => 'required|in:f,m',
         'address' => 'max:191|string|nullable',
     ];
 
@@ -70,6 +84,8 @@ class RegisterLivestock extends Component
             'name' => $this->name,
             'mobile' => $this->mobile,
             'type_livestock' => $this->typeLivestock,
+            'gender' => $this->gender,
+            'amount' => $this->amount,
             'address' => $this->address,
         ]);
         if ($register) {
@@ -106,7 +122,8 @@ class RegisterLivestock extends Component
     public function render()
     {
         return view('livewire.admin.register-livestock', [
-            'listLivestock' => Livestock::latest()->paginate(10)
+            'listLivestock' => Livestock::where('mobile', "LIKE", "%$this->searchList%")
+                ->orWhere('name', "LIKE", "%$this->searchList%")->latest()->paginate(10)
         ])->layout('layouts.admin-master');
     }
 }
