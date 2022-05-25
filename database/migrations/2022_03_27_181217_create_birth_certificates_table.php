@@ -14,11 +14,11 @@ class CreateBirthCertificatesTable extends Migration
     public function up()
     {
         Schema::create('birth_certificates', function (Blueprint $table) {
-            $table->id();
-            $table->string('serial')->unique();
+            $table->bigIncrements('id')->unsigned();
             $table->string('name');
-            $table->integer('owner')->unsigned();
-            $table->foreign('owner')->references('id')->on('livestock');
+            $table->foreignId('owner')->unsigned()->index()->nullable();
+            $table->foreign('owner')->references('id')
+                ->on('livestock')->onDelete('cascade')->onUpdate('cascade');
             $table->string('type_livestock')->nullable();
             $table->string('race')->nullable();
             $table->date('date_birth')->nullable();
@@ -26,6 +26,7 @@ class CreateBirthCertificatesTable extends Migration
             $table->string('color')->nullable();
             $table->timestamps();
         });
+        \Illuminate\Support\Facades\DB::statement('ALTER TABLE birth_certificates AUTO_INCREMENT = 1400');
     }
 
     /**

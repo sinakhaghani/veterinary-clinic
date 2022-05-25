@@ -86,16 +86,8 @@ class RegisterBirthCertificate extends Component
     {
 
         $this->validate();
-        $serial = mt_rand(1000,9999);
-        $checkSerial = BirthCertificate::where('serial', $serial)->first();
-        while (!empty($checkSerial))
-        {
-            $serial = mt_rand(1000,9999);
-            $checkSerial = BirthCertificate::where('serial', $serial)->first();
-        }
 
         $register = BirthCertificate::create([
-            'serial' => $serial,
             'name' => $this->nameLive,
             'owner' => $this->owner,
             'type_livestock' => $this->typeLivestock,

@@ -117,7 +117,7 @@
                                         @endphp
                                         @foreach($listDateBirth as $index => $items)
                                         <tr>
-                                            <td class="text-truncate"><h5>{{ $items['serial'] }}</h5></td>
+                                            <td class="text-truncate"><h5>{{ $items['id'] }}</h5></td>
                                             <td class="text-truncate">{{ $items['name'] }}</td>
                                             <td class="text-truncate">{{ (!is_null($items['livestock'])) ? $items['livestock']['name'] : '' }}</td>
                                             <td> {{ $items['type_livestock'] }} </td>
@@ -152,9 +152,6 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                {{--<div class="modal-body" style="z-index: 1500!important;">
-                                    ...
-                                </div>--}}
                                 <div class="modal-footer" >
                                     <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">بستن</button>
                                     <button wire:click.prevent="delete()" type="button" class="btn btn-danger">حذف کن</button>

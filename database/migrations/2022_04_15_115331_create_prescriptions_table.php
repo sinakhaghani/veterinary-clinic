@@ -15,8 +15,9 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('certificate');
-            $table->foreign('certificate')->references('id')->on('birth_certificates');
+            $table->foreignId('certificate')->unsigned()->index()->nullable();
+            $table->foreign('certificate')->references('id')
+                ->on('birth_certificates')->onDelete('cascade')->onUpdate('cascade');
             $table->string('medicine');
             $table->string('description')->nullable();
             $table->timestamps();
