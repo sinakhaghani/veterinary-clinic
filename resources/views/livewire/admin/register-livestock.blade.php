@@ -46,8 +46,8 @@
                                             <div class="col-md-6">
                                                 <select  class="form-control round mt-1" style="width: 100%;" wire:model.debounce.1000ms="gender">
                                                     <option value="">جنسیت</option>
-                                                    <option value="f">مرد</option>
-                                                    <option value="m">زن</option>
+                                                    <option value="m">مرد</option>
+                                                    <option value="f">زن</option>
                                                 </select>
                                                 @error('gender') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -147,27 +147,24 @@
                     </div>
                 </div>
 
-                <!-- Modal -->
-                <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog"  role="document">
-                        <div class="modal-content"  >
-                            <div class="modal-header" >
-                                <h5 class="modal-title" id="exampleModalLabel">آیا از حذف اطمینان دارید؟</h5>
-                                <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            {{--<div class="modal-body" style="z-index: 1500!important;">
-                                ...
-                            </div>--}}
-                            <div class="modal-footer" >
-                                <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">بستن</button>
-                                <button wire:click.prevent="delete()" type="button" class="btn btn-danger">حذف کن</button>
-                            </div>
-                        </div>
+        <!-- Modal -->
+        <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog"  role="document">
+                <div class="modal-content"  >
+                    <div class="modal-header" >
+                        <h5 class="modal-title" id="exampleModalLabel">آیا از حذف اطمینان دارید؟</h5>
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">بستن</button>
+                        <button wire:click.prevent="delete()" type="button" class="btn btn-danger">حذف کن</button>
                     </div>
                 </div>
-                <!-- Modal -->
+            </div>
+        </div>
+        <!-- Modal -->
 
             </section>
         </div>

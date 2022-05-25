@@ -54,6 +54,10 @@ class RegisterBirthCertificate extends Component
     /**
      * @var string
      */
+    /**
+     * @var
+     */
+    public $searchList;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -126,7 +130,8 @@ class RegisterBirthCertificate extends Component
     {
         return view('livewire.admin.register-birth-certificate', [
             'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
-            'listDateBirth' => BirthCertificate::with('livestock')->latest()->paginate(10),
+            'listDateBirth' => BirthCertificate::with('livestock')->where('name', "LIKE", "%$this->searchList%")
+        ->orWhere('id', "LIKE", "%$this->searchList%")->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }

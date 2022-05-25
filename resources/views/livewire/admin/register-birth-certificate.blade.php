@@ -88,7 +88,24 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="content-header"> شناسنامه ها</h2>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h6 class="content-header" style="font-size: 18px">لیست شناسنامه ها</h6>
+                            </div>
+                            <div class="col-lg-4">
+                                <form action="">
+                                    <div class="position-relative has-icon-left">
+                                        <input wire:model="searchList" type="text"
+                                               class="form-control form-control round" style="width:100%;margin-top: 15px" placeholder="جستجو با نام دام و سریال">
+
+                                        <div class="form-control-position">
+                                            <i class="ft-search info"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
