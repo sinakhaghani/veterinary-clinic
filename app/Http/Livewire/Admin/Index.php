@@ -27,8 +27,8 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.index',[
-            'livestockLatest' => Livestock::latest()->paginate(10),
-            'certificateLatest' => BirthCertificate::with('livestock')->latest()->paginate(10),
+            'livestockLatest' => Livestock::latest()->take(10)->get(),
+            'certificateLatest' => BirthCertificate::with('livestock')->latest()->take(10)->get(),
         ])->layout('layouts.admin-master');
     }
 }

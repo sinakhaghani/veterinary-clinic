@@ -160,6 +160,7 @@ return [
         'dateBirth'              => 'تاریخ تولد',
         'mobile'              => 'تلفن همراه',
         'gender'              => 'جنسیت',
+        'certificate'              => 'شناسنامه',
     ],
 
 ];
