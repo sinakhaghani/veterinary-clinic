@@ -18,7 +18,12 @@
                         <li>
                             <i class="fa fa-long-arrow-left">
                             </i>
-                            <a href="{{ route('admin.register.livestock') }}"  class="menu-item">ثبت نام مراجعه کننده</a>
+                            <a href="{{ route('admin.register.livestock') }}"  class="menu-item">ثبت نام اعضاء</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-long-arrow-left">
+                            </i>
+                            <a href="{{ route('admin.register.referred') }}"  class="menu-item">ثبت مراجعه کننده</a>
                         </li>
                         <li>
                             <i class="fa fa-long-arrow-left"></i>

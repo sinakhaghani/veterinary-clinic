@@ -148,19 +148,20 @@ return [
     */
 
     'attributes' => [
-        'email'                 => 'ایمیل',
-        'password'              => 'گذرواژه',
-        'nameLivestock'         => 'نام دام',
-        'medicine'              => 'دارو',
-        'title'              => 'عنوان',
-        'name'              => 'نام دامدار',
-        'address'              => 'آدرس',
-        'nameLive'              => 'نام دام',
-        'typeLivestock'              => 'نوع دام',
-        'dateBirth'              => 'تاریخ تولد',
-        'mobile'              => 'تلفن همراه',
-        'gender'              => 'جنسیت',
-        'certificate'              => 'شناسنامه',
+        'email'         => 'ایمیل',
+        'password'      => 'گذرواژه',
+        'nameLivestock' => 'نام دام',
+        'medicine'      => 'دارو',
+        'title'         => 'عنوان',
+        'name'          => 'نام دامدار',
+        'address'       => 'آدرس',
+        'nameLive'      => 'نام دام',
+        'typeLivestock' => 'نوع دام',
+        'dateBirth'     => 'تاریخ تولد',
+        'mobile'        => 'تلفن همراه',
+        'gender'        => 'جنسیت',
+        'certificate'   => 'شناسنامه',
+        'amount'        => 'مبلغ',
     ],
 
 ];

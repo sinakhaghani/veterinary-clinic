@@ -26,10 +26,6 @@ class EditLivestock extends Component
     /**
      * @var
      */
-    public $amount;
-    /**
-     * @var
-     */
     public $typeLivestock;
     /**
      * @var
@@ -45,7 +41,6 @@ class EditLivestock extends Component
             'name' => 'required|string|min:2|max:100',
             'mobile' => 'required|numeric|digits:11|unique:livestock,mobile,'.$this->livestock['id'],
             'typeLivestock' => 'nullable|string|max:100',
-            'amount' => 'nullable|numeric',
             'gender' => 'required|in:f,m',
             'address' => 'max:191|string|nullable',
         ];
@@ -69,7 +64,6 @@ class EditLivestock extends Component
         $this->mobile = $this->livestock['mobile'];
         $this->typeLivestock = $this->livestock['type_livestock'];
         $this->gender = $this->livestock['gender'];
-        $this->amount = $this->livestock['amount'];
         $this->address = $this->livestock['address'];
     }
 
@@ -84,7 +78,6 @@ class EditLivestock extends Component
             'mobile' => $this->mobile,
             'type_livestock' => $this->typeLivestock,
             'gender' => $this->gender,
-            'amount' => $this->amount,
             'address' => $this->address,
         ]);
 

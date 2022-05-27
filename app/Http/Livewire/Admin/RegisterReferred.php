@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
-use App\Models\LivestockTypeLivestock;
+use App\Models\Referred;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class RegisterLivestock extends Component
+class RegisterReferred extends Component
 {
     use WithPagination;
 
@@ -15,19 +15,7 @@ class RegisterLivestock extends Component
     /**
      * @var
      */
-    public $name;
-    /**
-     * @var
-     */
-    public $mobile;
-    /**
-     * @var
-     */
-    public $typeLivestock;
-    /**
-     * @var
-     */
-    public $gender;
+    public $owner;
     /**
      * @var
      */
@@ -35,33 +23,27 @@ class RegisterLivestock extends Component
     /**
      * @var
      */
-    public $address;
-    /**
-     * @var
-     */
-    public $option;
-    /**
-     * @var
-     */
     public $searchList;
     /**
      * @var
      */
-    public $livestockId;
+    public $searchOwner;
+    /**
+     * @var
+     */
+    public $referredId;
 
     /**
      * @var string[]
      */
     protected $rules = [
-        'name' => 'required|string|min:3|max:150',
-        'typeLivestock' => 'nullable|string|max:150',
-        'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
-        'gender' => 'required|in:f,m',
-        'address' => 'max:191|string|nullable',
+        'owner' => 'required|numeric|min:1|exists:livestock,id',
+        'amount' => 'nullable|numeric',
     ];
     /**
      * @var mixed
      */
+
 
     /**
      * @param $name
@@ -78,12 +60,9 @@ class RegisterLivestock extends Component
     public function register()
     {
         $this->validate();
-        $register = Livestock::create([
-            'name' => $this->name,
-            'mobile' => $this->mobile,
-            'type_livestock' => $this->typeLivestock,
-            'gender' => $this->gender,
-            'address' => $this->address,
+        $register = Referred::create([
+            'owner' => $this->owner,
+            'amount' => $this->amount,
         ]);
         if ($register) {
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
@@ -96,7 +75,7 @@ class RegisterLivestock extends Component
      */
     public function setId($id)
     {
-        $this->livestockId = Livestock::find($id);
+        $this->referredId = Referred::find($id);
     }
 
     /**
@@ -104,7 +83,7 @@ class RegisterLivestock extends Component
      */
     public function delete()
     {
-        $delete = $this->livestockId->delete();
+        $delete = $this->referredId->delete();
         if ($delete)
         {
             $this->emit('deleteModal', 'success', "حذف با موفقیت انجام شد");
@@ -113,14 +92,14 @@ class RegisterLivestock extends Component
             $this->emit('deleteModal', 'error', "متاسفم حذف انجام نشد، دوباره امتحان کنید");
     }
 
-    /**
-     * @return mixed
-     */
     public function render()
     {
-        return view('livewire.admin.register-livestock', [
-            'listLivestock' => Livestock::where('mobile', "LIKE", "%$this->searchList%")
-                ->orWhere('name', "LIKE", "%$this->searchList%")->latest()->paginate(10)
+        return view('livewire.admin.register-referred', [
+            'listReferred' => Referred::with('livestock')->whereHas('livestock', function($query){
+                $query->where('name', "LIKE", "%$this->searchList%");
+            })->latest()->paginate(10),
+            'listOwner' => Livestock::where('mobile', "LIKE", "%$this->searchOwner%")
+                ->orWhere('name', "LIKE", "%$this->searchOwner%")->get()->toArray(),
         ])->layout('layouts.admin-master');
     }
 }

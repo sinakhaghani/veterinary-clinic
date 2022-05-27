@@ -4,7 +4,7 @@
             <section id="calendar">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="content-header">ویرایش مراجعه کننده</h2>
+                        <h2 class="content-header">ویرایش اعضاء</h2>
                     </div>
                 </div>
                 <form wire:submit.prevent="update">
@@ -51,11 +51,6 @@
                                                     <option value="f">زن</option>
                                                 </select>
                                                 @error('gender') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control round addpo"
-                                                       placeholder="مبلغ" maxlength="30" style="margin-top: 10px" wire:model.defer="amount">
-                                                @error('amount') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
