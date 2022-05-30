@@ -24,7 +24,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/register-livestock', \App\Http\Livewire\Admin\RegisterLivestock::class)->name('admin.register.livestock');
     Route::get('/edit-livestock/{livestock}', \App\Http\Livewire\Admin\EditLivestock::class)->name('admin.edit.livestock');
     Route::get('/register-referred', \App\Http\Livewire\Admin\RegisterReferred::class)->name('admin.register.referred');
-    Route::get('/register-medicines', \App\Http\Livewire\Admin\RegisterMedicines::class)->name('admin.register.medicines');
+    //Route::get('/register-medicines', \App\Http\Livewire\Admin\RegisterMedicines::class)->name('admin.register.medicines');
     Route::get('/register-birth-certificate', \App\Http\Livewire\Admin\RegisterBirthCertificate::class)->name('admin.register.certificate');
     Route::get('/edit-birth-certificate/{birthCertificate}', \App\Http\Livewire\Admin\EditBirthCertificate::class)->name('admin.edit.certificate');
     Route::get('/panel-sms', \App\Http\Livewire\Admin\PanelSms::class)->name('admin.panel.sms');

@@ -24,7 +24,7 @@
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input style="margin-top: 10px" type="text" id="" class="form-control round addpo" maxlength="100" minlength="5" placeholder="ایمیل" required wire:model.debounce.1000ms="email">
+                                            <input style="margin-top: 10px" type="text" id="" class="form-control round addpo" maxlength="100" minlength="5" placeholder="ایمیل" wire:model.debounce.1000ms="email">
                                             @error('email') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>

@@ -15,11 +15,10 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('certificate')->unsigned()->index()->nullable();
-            $table->foreign('certificate')->references('id')
-                ->on('birth_certificates')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('medicine');
-            $table->string('description')->nullable();
+            $table->foreignId('owner')->unsigned()->index()->nullable();
+            $table->foreign('owner')->references('id')
+                ->on('livestock')->onDelete('cascade')->onUpdate('cascade');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

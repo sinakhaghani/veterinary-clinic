@@ -4,16 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use Morilog\Jalali\Jalalian;
 
 class Prescription extends Model
 {
     use HasFactory;
 
     protected $table = 'prescriptions';
-    protected $fillable = ['certificate','medicine', 'description'];
+    protected $fillable = ['owner', 'description'];
+    protected $appends = ['date'];
 
-    public function birthCertificate(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s'
+    ];
+
+    public function getDateAttribute()
     {
-        return $this->belongsTo(BirthCertificate::class, 'certificate');
+        return  Jalalian::fromCarbon(Carbon::parse($this->attributes['created_at']))->format('H:i:s - Y-m-d');
+    }
+
+    public function livestock(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Livestock::class, 'owner');
     }
 }

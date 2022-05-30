@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
 use App\Models\Referred;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -32,6 +33,10 @@ class RegisterReferred extends Component
      * @var
      */
     public $referredId;
+    /**
+     * @var
+     */
+    public $next_visit;
 
     /**
      * @var string[]
@@ -39,6 +44,7 @@ class RegisterReferred extends Component
     protected $rules = [
         'owner' => 'required|numeric|min:1|exists:livestock,id',
         'amount' => 'nullable|numeric',
+        'next_visit' => 'nullable|date',
     ];
     /**
      * @var mixed
@@ -65,6 +71,12 @@ class RegisterReferred extends Component
             'amount' => $this->amount,
         ]);
         if ($register) {
+            if (empty($this->next_visit))
+                $this->next_visit = null;
+
+            $nextVisit = Livestock::find($this->owner);
+            $nextVisit->next_visit = $this->next_visit;
+            $nextVisit->save();
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         } else
             $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");

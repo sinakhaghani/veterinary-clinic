@@ -10,7 +10,7 @@ class BirthCertificate extends Model
     use HasFactory;
 
     protected $table = 'birth_certificates';
-    protected $fillable = ['name', 'owner', 'type_livestock', 'race', 'date_birth', 'sex', 'color'];
+    protected $fillable = ['name', 'owner', 'type_livestock', 'race', 'date_birth', 'sex', 'color', 'next_visit'];
 
     public function livestock(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

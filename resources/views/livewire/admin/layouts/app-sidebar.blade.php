@@ -43,10 +43,6 @@
                             <i class="fa fa-long-arrow-left"></i>
                             <a href="{{ route('admin.register.prescription') }}"  class="menu-item">ثبت نسخه</a>
                         </li>
-                        <li>
-                            <i class="fa fa-long-arrow-left"></i>
-                            <a href="{{ route('admin.register.medicines') }}" class="menu-item">ثبت دارو</a>
-                        </li>
                     </ul>
                 </li>
                 @if(auth()->user()['role'] == 1)

@@ -17,15 +17,11 @@ class RegisterPrescription extends Component
     /**
      * @var
      */
-    public $certificate;
+    public $owner;
     /**
      * @var
      */
     public $description;
-    /**
-     * @var
-     */
-    public $medicine;
     /**
      * @var
      */
@@ -35,8 +31,7 @@ class RegisterPrescription extends Component
      * @var string[]
      */
     protected $rules = [
-        'certificate' => 'required|numeric|min:1|exists:birth_certificates,id',
-        'medicine' => 'required|array|min:1',
+        'owner' => 'required|numeric|min:1|exists:livestock,id',
         'description' => 'string|nullable',
     ];
 
@@ -52,12 +47,8 @@ class RegisterPrescription extends Component
     public function register()
     {
         $this->validate();
-        $medicine = Medicine::whereIn('id', $this->medicine)->get('title')->toArray();
-        $medicine = collect($medicine)->flatten()->toArray();
-        $medicine = implode(',', $medicine);
         $register = Prescription::create([
-            'certificate' => $this->certificate,
-            'medicine' => $medicine,
+            'owner' => $this->owner,
             'description' => $this->description,
         ]);
 
@@ -93,8 +84,7 @@ class RegisterPrescription extends Component
     {
         return view('livewire.admin.register-prescription',[
             'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
-            'medicines' => Medicine::all(),
-            'listPrescription' => Prescription::with('birthCertificate')->latest()->paginate(10),
+            'listPrescription' => Prescription::with('livestock')->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }

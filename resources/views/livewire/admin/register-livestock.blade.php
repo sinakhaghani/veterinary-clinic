@@ -109,6 +109,7 @@
                                             <th class="border-top-0">جنسیت</th>
                                             <th class="border-top-0">آدرس</th>
                                             <th class="border-top-0">تاریخ ثبت</th>
+                                            <th class="border-top-0">مراجعه بعدی</th>
                                             <th class="border-top-0">عملیات</th>
                                         </tr>
                                         </thead>
@@ -126,6 +127,7 @@
                                                 <td class="text-truncate">{{ ($items['gender'] == 'm') ? "مرد" : "زن" }}</td>
                                                 <td class="text-truncate">{{ $items['address'] }}</td>
                                                 <td class="text-truncate">{{ $items['date']  }}</td>
+                                                <td class="text-truncate">{{ $items['next_visit']  }}</td>
                                                 <td class="text-truncate">
                                                     <a href=" {{ route('admin.edit.livestock',$items['id']) }}" class="btn btn-sm btn-outline-success round mb-0">ویرایش</a>
                                                     <button wire:click="setId({{ $items['id'] }})" class="btn btn-sm btn-outline-danger round mb-0 delete-button" data-toggle="modal" >حذف</button>

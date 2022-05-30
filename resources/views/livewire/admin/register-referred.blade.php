@@ -28,11 +28,19 @@
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control round addpo"
+
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control round addpo persianDatePicker"
+                                                       placeholder="تاریخ مراجعه بعدی" style="margin-top: 10px" wire:model.debounce.1000ms="next_visit">
+                                                @error('next_visit') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="dateBirth" class="form-control round addpo"
                                                        placeholder="مبلغ" maxlength="30" style="margin-top: 10px" wire:model.debounce.1000ms="amount">
                                                 @error('amount') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +49,7 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12">
-                                                <input type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo" value="ثبت کن">
+                                                <input id="register" type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo" value="ثبت کن">
                                             </div>
                                         </div>
                                     </div>
@@ -89,6 +97,7 @@
                                             <th class="border-top-0">نام مالک</th>
                                             <th class="border-top-0">مبلغ</th>
                                             <th class="border-top-0">تاریخ ثبت</th>
+                                            <th class="border-top-0">تاریخ مراجعه بعدی</th>
                                             <th class="border-top-0">عملیات</th>
                                         </tr>
                                         </thead>
@@ -103,6 +112,7 @@
                                                 <td class="text-truncate"><h5>{{ $items['livestock']['name'] ?? "" }}</h5></td>
                                                 <td class="text-truncate">{{ $items['amount'] }}</td>
                                                 <td class="text-truncate">{{ $items['date'] }}</td>
+                                                <td class="text-truncate">{{ $items['livestock']['next_visit'] ?? "" }}</td>
                                                 <td class="text-truncate">
                                                     <button wire:click="setId({{ $items['id'] }})" class="btn btn-sm btn-outline-danger round mb-0 delete-button" data-toggle="modal" >حذف</button>
                                                 </td>
@@ -148,6 +158,7 @@
 
     $(document).ready(function () {
         checkDelete();
+        datePicker();
     });
 
     function checkDelete(){
@@ -166,6 +177,55 @@
             $('.modal').removeClass('show');
             $('.modal').css("display", "none");
             $('.back-modal').css("display", "none");
+        });
+    }
+
+    function datePicker(){
+        $(".persianDatePicker").persianDatepicker({
+            autoClose: true,
+            initialValueType: 'gregorian',
+            persianDigit: true,
+            initialValue: false,
+            observer: true,
+            calendarType: 'persian',
+            calendar:{
+                persian: {
+                    locale:'en'
+                },
+                gregorian:{
+                    locale:'en'
+                }
+            },
+            format: 'YYYY/MM/DD',
+            onSelect: function(unix){
+                String.prototype.toEnglishDigit = function() {
+                    let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                    let replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                    let replaceString = this;
+                    let regex;
+                    for (let i = 0; i < find.length; i++) {
+                        regex = new RegExp(find[i], "g");
+                        replaceString = replaceString.replace(regex, replace[i]);
+                    } return replaceString;
+                };
+                String.prototype.changeFormatDate = function() {
+                    let newArray = [];
+                    let array = this.split("/");
+                    array.forEach(function (item,index){
+                        if (item.length == 1){
+                            return newArray[index] = '0'+item;
+                        }
+                        else {
+                            return newArray[index] = item;
+                        }
+                    });
+                    return newArray.join("/");
+                };
+                let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
+            @this.set('next_visit', today, true);
+
+            },
+
         });
     }
 </script>

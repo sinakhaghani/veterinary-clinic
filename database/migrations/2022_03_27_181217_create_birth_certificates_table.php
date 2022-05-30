@@ -24,6 +24,7 @@ class CreateBirthCertificatesTable extends Migration
             $table->date('date_birth')->nullable();
             $table->string('sex')->nullable();
             $table->string('color')->nullable();
+            $table->date('next_visit')->nullable();
             $table->timestamps();
         });
         \Illuminate\Support\Facades\DB::statement('ALTER TABLE birth_certificates AUTO_INCREMENT = 1400');

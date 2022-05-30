@@ -16,39 +16,13 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input class="form-control round" type="text" placeholder="جستجوی دامدار" wire:model="searchLivestock">
-                                            <select  class="form-control round mt-1" id="owner" style="width: 100%;">
+                                            <select  class="form-control round mt-1" id="owner" style="width: 100%;" wire:model="owner">
                                                 <option class="default-option" value="">نام دامدار انتخاب کنید</option>
                                                 @foreach($livestock as $item)
                                                     <option value="{{ $item['id'] }}"> {{ $item['name'].' '.$item['mobile'] }}  </option>
                                                 @endforeach
                                             </select>
                                             @error('owner') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-header" dir="rtl">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <select id="certificate" class="form-control round mt-1" style="width: 100%;" wire:model.defer="certificate" disabled="disabled">
-                                                <option value="">نام دام</option>
-                                            </select>
-                                            @error('certificate') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-header" dir="rtl">
-                                    <div class="row">
-                                        <label class="form-check-label font-medium-1 mb-2" for="inlineCheckbox1">دارو:</label>
-                                        <div class="col-md-12">
-
-                                            @foreach($medicines as $item)
-                                                <label class="form-check-label font-medium-1 mr-3" for="inlineCheckbox1">{{ $item['title'] }}</label>
-                                                <input class="form-check-input" type="checkbox" name="medicine.{{ $item['id'] }}" value="{{ $item['id'] }}" wire:model.defer="medicine.{{$item['id']}}"  >
-                                            @endforeach
-                                            <br>
-                                                @error('medicine') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -93,9 +67,9 @@
                                     <table class="table table-hover table-xl mb-0" id="recent-orders">
                                         <thead style="color: #FFFFFF;text-align: center">
                                         <tr>
-                                            <th class="border-top-0">نام دام</th>
-                                            <th class="border-top-0">داروها</th>
+                                            <th class="border-top-0">نام مالک</th>
                                             <th class="border-top-0">توضیحات</th>
+                                            <th class="border-top-0">تاریخ ثبت</th>
                                         </tr>
                                         </thead>
                                         <tbody style="background-color: #FFFFFF;text-align: center">
@@ -103,11 +77,10 @@
                                             $cnt=0;
                                         @endphp
                                         @foreach($listPrescription as $index => $items)
-
                                             <tr>
-                                                <td class="text-truncate"><h5>{{ (!is_null($items['birthCertificate'])) ? $items['birthCertificate']['name'] : '' }}</h5></td>
-                                                <td class="text-truncate">{{ $items['medicine'] }}</td>
+                                                <td class="text-truncate"><h5>{{ $items['livestock']['name'] ?? "" }}</h5></td>
                                                 <td class="text-truncate">{{ $items['description'] }}</td>
+                                                <td class="text-truncate">{{ $items['date'] }}</td>
                                                 <td class="text-truncate">
                                                     <button wire:click="setId({{ $items['id'] }})" class="btn btn-sm btn-outline-danger round mb-0 delete-button" data-toggle="modal" >حذف</button>
                                                 </td>
@@ -154,43 +127,8 @@
 <script>
 
     $(document).ready(function () {
-        certificate();
         checkDelete();
     });
-
-    function certificate(){
-        $('#owner').on('change', function (){
-            $.ajax({
-                url: '/admin/ajax-certificate',
-                type: 'GET',
-                dataType: 'json',
-                beforeSend: function() {
-                    $('#certificate').attr('disabled', 'disabled');
-                    $("#certificate").empty();
-                },
-                data: {
-                    "owner": function () {
-                        return $('#owner').val();
-                    }
-                },
-
-                success: function (data)
-                {
-                    let options = '<option value="">نام دام</option>';
-                    let i;
-                    for(i = 0; i < data.length; i++)
-                    {
-                        let sex = (data[i].sex == "Male") ? "نر" : "ماده";
-                        options = options + "<option value='" + data[i].id + "' title='" + data[i].name + "' > (" + data[i].name + ") (" + data[i].race + ") (" + sex + ")" + "</option>";
-                    }
-
-                    $('#certificate').append(options);
-                    $('#certificate').removeAttr('disabled');
-
-                },
-            });
-        });
-    }
 
     function checkDelete(){
         $(".delete-button").click(function(){
