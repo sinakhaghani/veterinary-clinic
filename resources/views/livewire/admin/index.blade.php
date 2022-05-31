@@ -49,7 +49,7 @@
                                     <div class="media">
                                         <div class="media-body white text-left">
                                             <h4 class="font-medium-5 card-title mb-0">{{ $numberLivestock }}</h4>
-                                            <span class="grey darken-1">تعداد کل دامدارها</span>
+                                            <span class="grey darken-1">تعداد کل اعضاء</span>
                                         </div>
                                         <div class="media-right text-right">
                                             <i class="fa fa-user-circle-o font-large-1 success"></i>
