@@ -27,10 +27,6 @@ class RegisterLivestock extends Component
     /**
      * @var
      */
-    public $gender;
-    /**
-     * @var
-     */
     public $amount;
     /**
      * @var
@@ -56,12 +52,8 @@ class RegisterLivestock extends Component
         'name' => 'required|string|min:3|max:150',
         'typeLivestock' => 'nullable|string|max:150',
         'mobile' => 'required|numeric|unique:livestock,mobile|digits:11',
-        'gender' => 'required|in:f,m',
         'address' => 'max:191|string|nullable',
     ];
-    /**
-     * @var mixed
-     */
 
     /**
      * @param $name
@@ -82,7 +74,6 @@ class RegisterLivestock extends Component
             'name' => $this->name,
             'mobile' => $this->mobile,
             'type_livestock' => $this->typeLivestock,
-            'gender' => $this->gender,
             'address' => $this->address,
         ]);
         if ($register) {

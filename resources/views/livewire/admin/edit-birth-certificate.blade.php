@@ -10,6 +10,7 @@
                 <form wire:submit.prevent="update">
                     <div class="row">
                         <div class="col-lg-12">
+
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
@@ -20,6 +21,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -34,17 +36,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-body">
+
+                               {{-- <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input value="" id="typeLivestock" type="text" class="form-control round addpo"
-                                                       placeholder="نوع دام" style="margin-top: 10px" wire:model.defer="typeLivestock">
+                                                <select  class="form-control round mt-1" tabindex="1" style="width: 100%;" wire:model.defer="typeLivestock">
+                                                    <option value="">نوع دام را انتخاب کنید</option>
+                                                    <option value="0">سگ</option>
+                                                    <option value="1">گربه</option>
+                                                </select>
                                                 @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -73,6 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -82,6 +90,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

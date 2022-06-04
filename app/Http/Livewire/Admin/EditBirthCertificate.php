@@ -56,7 +56,7 @@ class EditBirthCertificate extends Component
         $this->race = $this->birthCertificate['race'];
         $this->sex = $this->birthCertificate['sex'];
         $this->color = $this->birthCertificate['color'];
-        $this->typeLivestock = $this->birthCertificate['type_livestock'];
+        //$this->typeLivestock = $this->birthCertificate['type_livestock'];
     }
 
     /**
@@ -66,7 +66,7 @@ class EditBirthCertificate extends Component
         'owner' => 'required|numeric|min:1|exists:livestock,id',
         'nameLive' => 'required|string|min:2|max:150',
         'dateBirth' => 'required|date',
-        'typeLivestock' => 'required|min:1|string|max:50',
+        //'typeLivestock' => 'required|numeric|in:0,1',
         'sex' => 'max:191|string|nullable',
         'color' => 'max:191|string|nullable',
         'race' => 'max:191|string|nullable',
@@ -90,7 +90,7 @@ class EditBirthCertificate extends Component
         $update = $this->birthCertificate->update([
             'name' => $this->nameLive,
             'owner' => $this->owner,
-            'type_livestock' => $this->typeLivestock,
+            //'type_livestock' => $this->typeLivestock,
             'race' => $this->race,
             'date_birth' => $this->dateBirth,
             'sex' => $this->sex,

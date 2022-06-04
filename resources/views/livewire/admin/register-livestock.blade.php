@@ -43,21 +43,6 @@
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <select  class="form-control round mt-1" style="width: 100%;" wire:model.debounce.1000ms="gender">
-                                                    <option value="">جنسیت</option>
-                                                    <option value="m">مرد</option>
-                                                    <option value="f">زن</option>
-                                                </select>
-                                                @error('gender') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <div class="card-block">
-                                        <div class="row">
                                             <div class="col-md-12 col-sm-12">
                                                 <input type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo" value="ثبت کن">
                                             </div>
@@ -106,7 +91,6 @@
                                             <th class="border-top-0">نام</th>
                                             <th class="border-top-0">موبایل</th>
                                             <th class="border-top-0">نوع دام</th>
-                                            <th class="border-top-0">جنسیت</th>
                                             <th class="border-top-0">آدرس</th>
                                             <th class="border-top-0">تاریخ ثبت</th>
                                             <th class="border-top-0">مراجعه بعدی</th>
@@ -124,7 +108,6 @@
                                                 <td class="text-truncate"><h5>{{ $items['name'] }}</h5></td>
                                                 <td class="text-truncate">{{ $items['mobile'] }}</td>
                                                 <td class="text-truncate">{{ $items['type_livestock'] }}</td>
-                                                <td class="text-truncate">{{ ($items['gender'] == 'm') ? "مرد" : "زن" }}</td>
                                                 <td class="text-truncate">{{ $items['address'] }}</td>
                                                 <td class="text-truncate">{{ $items['date']  }}</td>
                                                 <td class="text-truncate">{{ $items['next_visit']  }}</td>

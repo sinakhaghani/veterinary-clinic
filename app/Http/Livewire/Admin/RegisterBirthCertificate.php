@@ -68,7 +68,7 @@ class RegisterBirthCertificate extends Component
         'owner' => 'required|numeric|min:1|exists:livestock,id',
         'nameLive' => 'required|string|min:2|max:150',
         'dateBirth' => 'required|date',
-        'typeLivestock' => 'required|min:1|string|max:50',
+        'typeLivestock' => 'required|numeric|in:0,1',
         'sex' => 'max:191|string|nullable',
         'color' => 'max:191|string|nullable',
         'race' => 'max:191|string|nullable',
@@ -91,7 +91,17 @@ class RegisterBirthCertificate extends Component
 
         $this->validate();
 
+        $serialModel = BirthCertificate::latest()->first();
+        if (!is_null($serialModel))
+        {
+            $serial = ($this->typeLivestock == 0) ? $serialModel->serialDog() : $serialModel->serialCat();
+        }
+        else{
+            $serial = ($this->typeLivestock == 0) ? 'D1400' : 'C1400';
+        }
+
         $register = BirthCertificate::create([
+            'serial' => $serial,
             'name' => $this->nameLive,
             'owner' => $this->owner,
             'type_livestock' => $this->typeLivestock,

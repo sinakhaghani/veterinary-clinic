@@ -162,6 +162,7 @@ return [
         'gender'        => 'جنسیت',
         'certificate'   => 'شناسنامه',
         'amount'        => 'مبلغ',
+        'owner'         => 'مالک',
     ],
 
 ];

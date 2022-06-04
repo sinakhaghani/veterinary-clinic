@@ -10,6 +10,7 @@
                 <form wire:submit.prevent="register">
                     <div class="row">
                         <div class="col-lg-12">
+
                             <div class="card">
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
@@ -19,11 +20,12 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-header" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input class="form-control round" type="text" placeholder="جستجوی دامدار" wire:model="searchLivestock">
-                                            <select  class="select round mt-1" tabindex="1" style="width: 100%;" wire:model="owner">
+                                            <select  class="form-control round mt-1" tabindex="1" style="width: 100%;" wire:model="owner">
                                                 <option value="">نام دامدار انتخاب کنید</option>
                                                 @foreach($livestock as $item)
                                                     <option value="{{ $item['id'] }}"> {{ $item['name'].' '.$item['mobile'] }}  </option>
@@ -33,17 +35,22 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input value="" id="typeLivestock" type="text" class="form-control round addpo"
-                                                       placeholder="نوع دام" style="margin-top: 10px" wire:model.defer="typeLivestock">
+                                                <select  class="form-control round mt-1" tabindex="1" style="width: 100%;" wire:model.defer="typeLivestock">
+                                                    <option value="">نوع دام را انتخاب کنید</option>
+                                                    <option value="0">سگ</option>
+                                                    <option value="1">گربه</option>
+                                                </select>
                                                 @error('typeLivestock') <span class="mt-2 text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -72,6 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-block">
                                         <div class="row">
@@ -81,6 +89,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -134,7 +143,7 @@
                                         @endphp
                                         @foreach($listDateBirth as $index => $items)
                                         <tr>
-                                            <td class="text-truncate"><h5>{{ $items['id'] }}</h5></td>
+                                            <td class="text-truncate"><h5>{{ $items['serial'] }}</h5></td>
                                             <td class="text-truncate">{{ $items['name'] }}</td>
                                             <td class="text-truncate">{{ (!is_null($items['livestock'])) ? $items['livestock']['name'] : '' }}</td>
                                             <td> {{ $items['type_livestock'] }} </td>
