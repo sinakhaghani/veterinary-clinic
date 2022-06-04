@@ -83,7 +83,7 @@ class RegisterPrescription extends Component
     public function render()
     {
         return view('livewire.admin.register-prescription',[
-            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
+            'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->orWhere('mobile' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
             'listPrescription' => Prescription::with('livestock')->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
