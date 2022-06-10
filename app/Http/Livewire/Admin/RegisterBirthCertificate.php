@@ -141,7 +141,7 @@ class RegisterBirthCertificate extends Component
         return view('livewire.admin.register-birth-certificate', [
             'livestock' => Livestock::where('name' , "LIKE", "%{$this->searchLivestock}%")->orWhere('mobile' , "LIKE", "%{$this->searchLivestock}%")->get()->toArray(),
             'listDateBirth' => BirthCertificate::with('livestock')->where('name', "LIKE", "%$this->searchList%")
-        ->orWhere('id', "LIKE", "%$this->searchList%")->latest()->paginate(10),
+        ->orWhere('serial', "LIKE", "%$this->searchList%")->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }

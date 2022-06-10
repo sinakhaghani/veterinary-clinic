@@ -30,6 +30,11 @@
                             <a href="{{ route('admin.register.certificate') }}" class="menu-item">ثبت شناسنامه</a>
                         </li>
 
+                        <li>
+                            <i class="fa fa-long-arrow-left"></i>
+                            <a href="{{ route('admin.list.referred') }}" class="menu-item">لیست مراجات</a>
+                        </li>
+
                     </ul>
                 </li>
 

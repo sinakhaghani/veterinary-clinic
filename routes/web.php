@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function (){
     Route::get('/ajax-certificate', [\App\Http\Controllers\AjaxController::class, 'certificate']);
     Route::get('/admin-management', \App\Http\Livewire\Admin\AdminManagement::class)->name('admin.management');
     Route::get('/edit-admin/{admin}', \App\Http\Livewire\Admin\EditAdmin::class)->name('admin.edit');
+    Route::get('/list-referred', \App\Http\Livewire\Admin\ListReferred::class)->name('admin.list.referred');
 });
 
 

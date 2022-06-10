@@ -96,7 +96,7 @@
                                             <td class="text-truncate">{{ $certificate['name'] }}</td>
                                             <td class="text-truncate">{{ $certificate['livestock']['name'] ?? "" }}</td>
                                             <td>
-                                                {{ $certificate['type_livestock'] }}
+                                                {{ $certificate['type_livestock'] == 0 ? "سگ" : "گربه" }}
                                             </td>
                                             <td>
                                                 {{ $certificate['date_birth'] }}
