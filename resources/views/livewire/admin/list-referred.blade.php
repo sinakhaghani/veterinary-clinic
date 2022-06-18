@@ -35,7 +35,7 @@
                                                         <tr>
                                                             <th class="border-top-0">ردیف</th>
                                                             <th class="border-top-0">نام مالک</th>
-                                                            <th class="border-top-0">مبلغ</th>
+                                                            <th class="border-top-0">توضیحات </th>
                                                             <th class="border-top-0">تاریخ ثبت</th>
                                                         </tr>
                                                         </thead>
@@ -48,7 +48,7 @@
                                                             <tr>
                                                                 <td> {{ $cnt++ }} </td>
                                                                 <td class="text-truncate"><h5>{{ $items['livestock']['name'] ?? "" }}</h5></td>
-                                                                <td class="text-truncate">{{ $items['amount'] }}</td>
+                                                                <td class="text-truncate">{{ $items['description'] }}</td>
                                                                 <td class="text-truncate">{{ $items['date'] }}</td>
                                                             </tr>
                                                         @endforeach

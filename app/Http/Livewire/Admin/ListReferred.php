@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
-use App\Models\Referred;
+use App\Models\Prescription;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -41,7 +41,7 @@ class ListReferred extends Component
         return view('livewire.admin.list-referred', [
             'listOwner' => Livestock::where('mobile', "LIKE", "%$this->searchOwner%")
                 ->orWhere('name', "LIKE", "%$this->searchOwner%")->get()->toArray(),
-            'listReferred' => Referred::with('livestock')->where('owner', $this->owner)->latest()->paginate(10),
+            'listReferred' => Prescription::with('livestock')->where('owner', $this->owner)->latest()->paginate(10),
         ])->layout('layouts.admin-master');
     }
 }

@@ -235,7 +235,7 @@
                         locale:'en'
                     }
                 },
-                format: 'YYYY/MM/DD',
+                format: 'YYYY-MM-DD',
                 onSelect: function(unix){
                     String.prototype.toEnglishDigit = function() {
                         let find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
@@ -258,7 +258,7 @@
                                 return newArray[index] = item;
                             }
                         });
-                        return newArray.join("/");
+                        return newArray.join("-");
                     };
                     let today = new Date(unix).toLocaleDateString('fa-IR').toEnglishDigit().changeFormatDate();
                 @this.set('dateBirth', today, true);

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\BirthCertificate;
 use App\Models\Livestock;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -67,7 +68,7 @@ class RegisterBirthCertificate extends Component
     protected $rules = [
         'owner' => 'required|numeric|min:1|exists:livestock,id',
         'nameLive' => 'required|string|min:2|max:150',
-        'dateBirth' => 'required|date',
+        'dateBirth' => 'required|date_format:Y-m-d',
         'typeLivestock' => 'required|numeric|in:0,1',
         'sex' => 'max:191|string|nullable',
         'color' => 'max:191|string|nullable',
@@ -88,16 +89,17 @@ class RegisterBirthCertificate extends Component
      */
     public function register()
     {
-
         $this->validate();
 
-        $serialModel = BirthCertificate::latest()->first();
-        if (!is_null($serialModel))
+        $serialModelDog = BirthCertificate::query();
+        $serialModelDog = ($this->typeLivestock == 0) ? $serialModelDog->where('type_livestock', 0) : $serialModelDog->where('type_livestock', 1);
+        $serialModelDog = $serialModelDog->latest()->first();
+        if (!is_null($serialModelDog))
         {
-            $serial = ($this->typeLivestock == 0) ? $serialModel->serialDog() : $serialModel->serialCat();
+            $serial = ($this->typeLivestock == 0) ? $serialModelDog->serialDog() : $serialModelDog->serialCat();
         }
         else{
-            $serial = ($this->typeLivestock == 0) ? 'D1400' : 'C1400';
+            $serial = ($this->typeLivestock == 0) ? 'D1400' : 'C400';
         }
 
         $register = BirthCertificate::create([
@@ -106,7 +108,7 @@ class RegisterBirthCertificate extends Component
             'owner' => $this->owner,
             'type_livestock' => $this->typeLivestock,
             'race' => $this->race,
-            'date_birth' => $this->dateBirth,
+            'date_birth' => Carbon::parse($this->dateBirth)->format('Y-m-d'),
             'sex' => $this->sex,
             'color' => $this->color,
         ]);
