@@ -62,6 +62,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-primary">
+                                    <h4 class="card-title">نمودار مبلغ مراجعات در یک هفته گذشته</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-block">
+                                    <div id="line-area4" class="height-400">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!--Statistics cards Ends-->
                 <!--Line with Area Chart 1 Starts-->
                 <div class="row">

@@ -22,7 +22,7 @@ class Referred extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['owner', 'amount'];
+    protected $fillable = ['id', 'owner', 'amount'];
 
     /**
      * @var string[]

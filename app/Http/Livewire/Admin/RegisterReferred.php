@@ -68,7 +68,7 @@ class RegisterReferred extends Component
         $this->validate();
         $register = Referred::create([
             'owner' => $this->owner,
-            'amount' => $this->amount,
+            'amount' => !empty($this->amount) ? $this->amount : null,
         ]);
         if ($register) {
             if (empty($this->next_visit))
