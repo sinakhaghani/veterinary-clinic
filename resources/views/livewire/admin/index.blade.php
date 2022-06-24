@@ -134,8 +134,8 @@
                                         <tr>
                                             <th class="border-top-0">نام
                                             </th>
-                                            <th class="border-top-0">تاریخ ثبت نام</th>
                                             <th class="border-top-0"> موبایل</th>
+                                            <th class="border-top-0">تاریخ ثبت نام</th>
                                         </tr>
                                         </thead>
                                         <tbody>
