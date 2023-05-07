@@ -4,12 +4,13 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
 use App\Models\LivestockTypeLivestock;
+use App\Traits\GeneralTrait;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class RegisterLivestock extends Component
 {
-    use WithPagination;
+    use WithPagination, GeneralTrait;
 
     protected $paginationTheme = 'bootstrap';
     /**
@@ -77,6 +78,7 @@ class RegisterLivestock extends Component
             'address' => $this->address,
         ]);
         if ($register) {
+            $this->sendSms($this->mobile, 'welcome', $this->name);
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         } else
             $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");
