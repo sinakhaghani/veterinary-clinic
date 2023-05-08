@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Jobs\SmsReferralReminder;
 use App\Models\Livestock;
 use App\Models\Referred;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -77,6 +79,13 @@ class RegisterReferred extends Component
             $nextVisit = Livestock::find($this->owner);
             $nextVisit->next_visit = $this->next_visit;
             $nextVisit->save();
+
+            if (!empty($this->next_visit))
+            {
+                $carbon = \Morilog\Jalali\CalendarUtils::createCarbonFromFormat('Y/m/d', $this->next_visit);
+                Queue::later($carbon->subDays(), new SmsReferralReminder($nextVisit->mobile, 'reminder', $this->next_visit));
+            }
+
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
         } else
             $this->emit('registerTypeLivestock', 'error', "این دام قبلا ثبت شده است");

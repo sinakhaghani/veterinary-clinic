@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('queue:work --stop-when-empty')
+            ->cron('* * * * *')
+            ->withoutOverlapping(5)->dailyAt('11:00')->timezone('Asia/Tehran');
     }
 
     /**
