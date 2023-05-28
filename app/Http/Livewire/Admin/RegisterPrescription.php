@@ -6,9 +6,13 @@ use App\Models\Livestock;
 use App\Models\Medicine;
 use App\Models\Prescription;
 use Livewire\Component;
+use Livewire\WithPagination;
+use niklasravnsborg\LaravelPdf\Facades\Pdf;
 
 class RegisterPrescription extends Component
 {
+    use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
     /**
      * @var
@@ -26,6 +30,10 @@ class RegisterPrescription extends Component
      * @var
      */
     public $certificateID;
+    /**
+     * @var
+     */
+    public $dataPdf;
 
     /**
      * @var string[]
@@ -44,18 +52,33 @@ class RegisterPrescription extends Component
         $this->validateOnly($name);
     }
 
+    public function htmlToPdf()
+    {
+        $this->validate();
+        $this->dataPdf = Prescription::where('owner', $this->owner)->get();
+    }
+
     public function register()
     {
         $this->validate();
-        $register = Prescription::create([
-            'owner' => $this->owner,
-            'description' => $this->description,
-        ]);
+        if (collect($this->dataPdf)->first() instanceof Prescription)
+        {
+            $data = $this->dataPdf;
+            $pdf = Pdf::loadView('reports.prescription', compact('data'));
+            return $pdf->download('report.pdf');
+        }
+        else{
+            $register = Prescription::create([
+                'owner' => $this->owner,
+                'description' => $this->description,
+            ]);
 
-        if ($register)
-            $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
-        else
-            $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+            if ($register)
+                $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
+            else
+                $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+        }
+
     }
 
     /**
