@@ -3,16 +3,17 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Livestock;
-use App\Models\Medicine;
 use App\Models\Prescription;
 use Livewire\Component;
 use Livewire\WithPagination;
-use niklasravnsborg\LaravelPdf\Facades\Pdf;
 
 class RegisterPrescription extends Component
 {
     use WithPagination;
 
+    /**
+     * @var string
+     */
     protected $paginationTheme = 'bootstrap';
     /**
      * @var
@@ -52,32 +53,22 @@ class RegisterPrescription extends Component
         $this->validateOnly($name);
     }
 
-    public function htmlToPdf()
-    {
-        $this->validate();
-        $this->dataPdf = Prescription::where('owner', $this->owner)->get();
-    }
-
+    /**
+     * @return void
+     */
     public function register()
     {
         $this->validate();
-        if (collect($this->dataPdf)->first() instanceof Prescription)
-        {
-            $data = $this->dataPdf;
-            $pdf = Pdf::loadView('reports.prescription', compact('data'));
-            return $pdf->download('report.pdf');
-        }
-        else{
-            $register = Prescription::create([
-                'owner' => $this->owner,
-                'description' => $this->description,
-            ]);
+        $register = Prescription::create([
+            'owner' => $this->owner,
+            'description' => $this->description,
+        ]);
 
-            if ($register)
-                $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
-            else
-                $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
-        }
+        if ($register)
+            $this->emit('register', 'success', "ثبت با موفقیت انجام شد");
+        else
+            $this->emit('register', 'error', "متاسفم ثبت انجام نشد، دوباره امتحان کنید");
+
 
     }
 
@@ -103,6 +94,9 @@ class RegisterPrescription extends Component
             $this->emit('deleteModal', 'error', "متاسفم حذف انجام نشد، دوباره امتحان کنید");
     }
 
+    /**
+     * @return mixed
+     */
     public function render()
     {
         return view('livewire.admin.register-prescription',[

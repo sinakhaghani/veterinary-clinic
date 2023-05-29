@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Prescription;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/pdf/{id?}', function ($id) {
+    $data = Prescription::where('owner', $id)->get();
+    $pdf = \niklasravnsborg\LaravelPdf\Facades\Pdf::loadView('reports.prescription', compact('data'));
+    return $pdf->stream('report.pdf');
+})->name('pdf.prescription');
 Route::get('/', \App\Http\Livewire\Client\Index::class)->name('client.main');
 Route::get('contact-us', \App\Http\Livewire\Client\ContactUs::class)->name('client.contact_us');
 Route::get('admin-login', \App\Http\Livewire\Admin\AdminLogin::class)->name('admin.login')

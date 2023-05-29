@@ -43,11 +43,14 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
+                                                <form></form>
                                                 <input id="submit" type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo" value="ثبت کن">
                                             </div>
 
-                                            <div class="col-md-6 col-sm-12">
-                                                <button wire:click="htmlToPdf()" id="submit"  type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo"> تبدیل به PDF </button>
+                                            <div class="col-md-6 col-sm-12" wire:ignore>
+                                                <form id="formPdf" method="get">
+                                                    <button id="submit"  type="submit" style="width: 50%;margin-right: 25%;margin-left: 25%" class="btn btn-round btn-info btn-lg spanpo"> تبدیل به PDF </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -132,6 +135,12 @@
 
     $(document).ready(function () {
         checkDelete();
+
+        $('#owner').on('change', function() {
+            let url = `{{ route('pdf.prescription') }}/${this.value}`
+            console.log(url)
+            $('#formPdf').attr('action', url);
+        });
     });
 
     function checkDelete(){
