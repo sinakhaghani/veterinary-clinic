@@ -22,6 +22,11 @@ class Livestock extends Model
 
     public function getDateAttribute()
     {
-        return  Jalalian::fromCarbon(Carbon::parse($this->attributes['created_at']))->format('Y-m-d');
+        return  Jalalian::fromCarbon(Carbon::parse($this->attributes['created_at'] ?? null))->format('Y-m-d');
+    }
+
+    public function birthCertificate()
+    {
+        return $this->hasMany(BirthCertificate::class, 'owner');
     }
 }

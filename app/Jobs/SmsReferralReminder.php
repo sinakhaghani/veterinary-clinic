@@ -17,16 +17,20 @@ class SmsReferralReminder implements ShouldQueue
     protected $receptor;
     protected $template;
     protected $token1;
+    protected $token2;
+    protected $token3;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($receptor, $template, $token1)
+    public function __construct($receptor, $template, $token1, $token2, $token3)
     {
         $this->receptor = $receptor;
         $this->template = $template;
         $this->token1   = $token1;
+        $this->token2   = $token2;
+        $this->token3   = $token3;
     }
 
     /**
@@ -36,6 +40,6 @@ class SmsReferralReminder implements ShouldQueue
      */
     public function handle()
     {
-        $this->sendSms($this->receptor, $this->template, $this->token1);
+        $this->sendSms($this->receptor, $this->template, $this->token1, $this->token2, $this->token3);
     }
 }

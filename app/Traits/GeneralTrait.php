@@ -12,17 +12,18 @@ trait GeneralTrait
         $api = env('KAVEH_NEGAR_APIKEY');
         $url = "https://api.kavenegar.com/v1/{$api}/verify/lookup.json";
         $token1 = explode(" ",$token1);
+        $token1_1 = $token1[0] ?? '';
+        $token1_2 = $token1[1] ?? '';
+        $token1_3 = $token1[2] ?? '';
         $params = [
             'receptor' => $receptor,
-            'token' => $token1[0],
+            'token' => $token1_1,
             'template' => $template,
         ];
 
-        if (!is_null($token2))
-            $params['token2'] = $token2;
+        $params['token2'] = !is_null($token2) ? $token2 : $token1_2;
 
-        if (!is_null($token3))
-            $params['token3'] = $token3;
+        $params['token3'] = !is_null($token3) ? $token3 : $token1_3;
 
         $json = Http::get($url, $params);
 

@@ -82,8 +82,10 @@ class RegisterReferred extends Component
 
             if (!empty($this->next_visit))
             {
+                $nameAnimal = $register->livestock->birthCertificate->first()->name;
+                $tel = env('TEL');
                 $carbon = \Morilog\Jalali\CalendarUtils::createCarbonFromFormat('Y/m/d', $this->next_visit);
-                Queue::later($carbon->subDays(), new SmsReferralReminder($nextVisit->mobile, 'reminder', $this->next_visit));
+                Queue::later($carbon->subDays(), new SmsReferralReminder($nextVisit->mobile, 'reminder', $this->next_visit, $nameAnimal, $tel));
             }
 
             $this->emit('registerTypeLivestock', 'success', "ثبت با موفقیت انجام شد");
