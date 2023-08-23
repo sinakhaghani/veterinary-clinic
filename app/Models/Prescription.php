@@ -22,7 +22,7 @@ class Prescription extends Model
 
     public function getDateAttribute()
     {
-        return  Jalalian::fromCarbon(Carbon::parse($this->attributes['created_at']))->format('H:i:s - Y-m-d');
+        return  Jalalian::fromCarbon(Carbon::parse($this->attributes['created_at']))->format('H:i - Y-m-d');
     }
 
     public function livestock(): \Illuminate\Database\Eloquent\Relations\BelongsTo

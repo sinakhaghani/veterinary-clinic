@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Jobs\SmsReferralReminder;
+use App\Models\BirthCertificate;
 use App\Models\Livestock;
 use App\Models\Referred;
 use Illuminate\Support\Carbon;
@@ -82,7 +83,10 @@ class RegisterReferred extends Component
 
             if (!empty($this->next_visit))
             {
-                $nameAnimal = $register->livestock->birthCertificate->first()->name;
+                $owner = $register->owner;
+                $birthCertificate = BirthCertificate::where('owner', $owner)->get()->toArray();
+                $nameAnimal = collect($birthCertificate)->whereNotNull('name')->first();
+                $nameAnimal = (!empty($nameAnimal)) ? $nameAnimal['name'] : ' ';
                 $tel = env('TEL');
                 $carbon = \Morilog\Jalali\CalendarUtils::createCarbonFromFormat('Y/m/d', $this->next_visit);
                 Queue::later($carbon->subDays(), new SmsReferralReminder($nextVisit->mobile, 'reminder', $this->next_visit, $nameAnimal, $tel));
