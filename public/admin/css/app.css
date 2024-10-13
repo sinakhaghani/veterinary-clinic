@@ -5867,7 +5867,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 .close {
   float : right;
   font-size : 1.5rem;
-  
+
   line-height : 1;
   color : #000000;
   text-shadow : 0 1px 0 #FFFFFF;
@@ -40832,7 +40832,7 @@ h2.title {
 }
 
 .text-bold-700 {
-  
+
 }
 
 .text-italic {
@@ -44068,7 +44068,7 @@ ul.list-inline.list-inline-pipe > li + li:before {
   background : #FFFFFF;
   font-family : fontawesome;
   font-size : 12px;
-  
+
 }
 
 .base-timeline li:last-child {
@@ -44198,7 +44198,7 @@ ul.list-inline.list-inline-pipe > li + li:before {
   right : -140px;
   text-transform : uppercase;
   font-size : 10px;
-  
+
 }
 
 .activity-timeline li:before {
@@ -44216,7 +44216,7 @@ ul.list-inline.list-inline-pipe > li + li:before {
   border-radius : 50%;
   background : #C6C5C7;
   font-size : 12px;
-  
+
   line-height : 30px;
 }
 
@@ -46791,17 +46791,17 @@ datetime .form-group {
   color : #FFFFFF;
 }
 .app-sidebar[data-background-color='aqua-marine'], .off-canvas-sidebar[data-background-color='aqua-marine'] {
-      background-image : -webkit-linear-gradient(45deg, #1488CC, #2B32B2);
-      background-image : -moz- oldlinear-gradient(45deg, #1488CC, #2B32B2);
-      background-image :      -o-linear-gradient(45deg, #1488CC, #2B32B2);
-      background-image :         linear-gradient(45deg, #1488CC, #2B32B2);
+      background-image : -webkit-linear-gradient(45deg, #34495e, #34495e);
+      background-image : -moz- oldlinear-gradient(45deg, #34495e, #34495e);
+      background-image :      -o-linear-gradient(45deg, #34495e, #34495e);
+      background-image :         linear-gradient(45deg, #34495e, #34495e);
   background-repeat : repeat-x;
 }
 .app-sidebar[data-background-color='aqua-marine'] .sidebar-background:after, .off-canvas-sidebar[data-background-color='aqua-marine'] .sidebar-background:after {
-      background-image : -webkit-linear-gradient(45deg, #1488CC, #2B32B2);
-      background-image : -moz- oldlinear-gradient(45deg, #1488CC, #2B32B2);
-      background-image :      -o-linear-gradient(45deg, #1488CC, #2B32B2);
-      background-image :         linear-gradient(45deg, #1488CC, #2B32B2);
+      background-image : -webkit-linear-gradient(45deg, #34495e, #34495e);
+      background-image : -moz- oldlinear-gradient(45deg, #34495e, #34495e);
+      background-image :      -o-linear-gradient(45deg, #34495e, #34495e);
+      background-image :         linear-gradient(45deg, #34495e, #34495e);
   background-repeat : repeat-x;
   opacity : 0.9;
 }
@@ -51015,7 +51015,7 @@ ul.no-list-style {
 .lineArea1Shadow {
   -webkit-filter : drop-shadow(0px 20px 6px rgba(0, 0, 0, 0.3));
           filter : drop-shadow(0px 20px 6px rgba(0, 0, 0, 0.3));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                        for the spread property */
 }
 
@@ -51162,7 +51162,7 @@ ul.no-list-style {
 .lineChart.lineChartShadow {
   -webkit-filter : drop-shadow(0px 20px 6px rgba(0, 0, 0, 0.3));
           filter : drop-shadow(0px 20px 6px rgba(0, 0, 0, 0.3));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                          for the spread property */
 }
 
@@ -51202,7 +51202,7 @@ ul.no-list-style {
 .donutShadow {
   -webkit-filter : drop-shadow(0px 20px 8px rgba(0, 0, 0, 0.3));
           filter : drop-shadow(0px 20px 8px rgba(0, 0, 0, 0.3));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                              for the spread property */
 }
 
@@ -51234,7 +51234,7 @@ ul.no-list-style {
 .BarChartShadow {
   -webkit-filter : drop-shadow(0px 20px 8px rgba(0, 0, 0, 0.3));
           filter : drop-shadow(0px 20px 8px rgba(0, 0, 0, 0.3));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                        for the spread property */
 }
 
@@ -51327,7 +51327,7 @@ ul.no-list-style {
 .WidgetAreaChartshadow {
   -webkit-filter : drop-shadow(0px -5px 2px rgba(0, 0, 0, 0.2));
           filter : drop-shadow(0px -5px 2px rgba(0, 0, 0, 0.2));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                        for the spread property */
 }
 
@@ -51380,7 +51380,7 @@ ul.no-list-style {
 .lineChart2Shadow {
   -webkit-filter : drop-shadow(0px 14px 4px rgba(0, 0, 0, 0.2));
           filter : drop-shadow(0px 14px 4px rgba(0, 0, 0, 0.2));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                        for the spread property */
 }
 
@@ -51446,7 +51446,7 @@ ul.no-list-style {
 .lineArea6Shadow {
   -webkit-filter : drop-shadow(0px -8px 4px rgba(0, 0, 0, 0.2));
           filter : drop-shadow(0px -8px 4px rgba(0, 0, 0, 0.2));
-  /* Same syntax as box-shadow, except 
+  /* Same syntax as box-shadow, except
                                                        for the spread property */
 }
 
